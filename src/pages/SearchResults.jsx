@@ -1,8 +1,11 @@
 import React from 'react'
+import Landing2 from '../component/landing2/Landing2'
 
 const SearchResults = () => {
   return (
-    <div>SearchResults</div>
+    <div>
+      <Landing2/>
+    </div>
   )
 }
 
