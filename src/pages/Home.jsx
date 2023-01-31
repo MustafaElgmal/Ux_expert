@@ -1,8 +1,15 @@
 import React from 'react'
-
+import Header from'../component/Header'
+import ColorPallets from '../component/ColorPallets'
+import UiPatterns from '../component/UiPatterns'
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+        <Header/>
+        <ColorPallets/>
+        <UiPatterns/>
+      </div>
+    
   )
 }
 

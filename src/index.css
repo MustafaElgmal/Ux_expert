@@ -6,12 +6,210 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif,poppins;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+    width: 1920px;
+    height: 1080px;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+/*head part */
+.head-container {
+  height: 117.02px;
+  width: 1920px;
+  display: flex;
+  font-family: poppins;
+  flex-direction: row;
+}
+
+.logo-container  {
+  width: 173.68px;
+  height: 55.99px;
+  margin-right: 619.86px;
+  margin: 31.05px 619.86px 29.98px 138.39px ;
+}
+.design-bttn {
+  width: 260px;
+  height:56px;
+  margin-top: 30.1px;
+  margin-bottom: 30.92px;
+  margin-right: 16px;
+  background: #0085F7;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 4px;
+  transition:3s 3s;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  -webkit-transition:3s 3s;
+  -moz-transition:3s 3s;
+  -ms-transition:3s 3s;
+  -o-transition:3s 3s;
+}
+.design-bttn i {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 23px;
+  height: 23px;
+}
+.design-bttn:hover {
+  direction: rtl;
+}
+.login {
+  width: 250px;
+  height: 56px;
+  margin-top: 30.1px;
+  margin-bottom: 30.92px;
+  margin-right: 140px;
+  color: #0085F7;
+  background: #FFFFFF;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: center;
+  border-radius: 8px;
+  border:1px solid #0085F7;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -ms-border-radius: 8px;
+  -o-border-radius: 8px;
+}
+.login i {
+  padding-left: 5px;
+  padding-right: 5px;
+  width: 28.56px;
+  height: 28.56px;
+}
+/****************************************************/
+/*content of searching*/
+.content-container {
+  display:flex;
+  flex-direction: column;
+  text-align: left;
+  width: 1780px;
+  font-family: poppins;
+}
+.header {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: left;
+  width: 650px;
+  height: 45px;
+  margin-left: 139px;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  color: #0D1216;
+}
+.guide-sentense {
+  font-size: 24px;
+  font-weight: 600;/*semibold*/
+  width: 990px;
+  height: 33px;
+  margin-left: 140px;
+  margin-bottom: 32px;
+}
+.one,.two,.three,.four,.five {
+  font-size: 24px;
+  color: #000;
+  margin-left: 140px;
+  margin-right: 240px;
+  max-width: 1645px;
+  margin-bottom: 24px;
+}
+.highlighted-sentense , .color-details {
+  font-weight: 700;
+}
+/****************************************/
+/*color pallets and ui pattern*/
+.color-pallet-container,.ui-pattern-container {
+  width: 1702px;
+  font-family: poppins;
+}
+.title {
+  display:flex;
+  flex-direction: row;
+}
+.title div {
+  width: 500px;
+  height: 33px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: left;
+  margin:39.65px 750px 21.59px 123.61px;
+}
+.title .see-all {
+  font-size: 24px;
+  font-weight: 600;
+  width: 100px;
+  height: 29.25px;
+  margin-top:39.65px ;
+  margin-bottom: 21.59px;
+  margin-right: 122.33px;
+  text-align: center;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.title .see-all:hover {
+  font-size: 24px;
+  font-weight: 600;
+  width: 100px;
+  height: 29.25px;
+  margin-right: 122.33px;
+  text-align: center;
+  color: #0085F7;
+  cursor:pointer;
+}
+.swiper-side  {
+  width: 204.31px;
+  height: 251.55px; 
+  margin-bottom:42.35px;
+}
+.swip-part{
+  margin-left: 124.10px;
+  margin-right: 124.10px;
+}
+.pallete,.pattern {
+  width:230px;
+  height: 206.91px;
+  overflow: hidden;
+}
+.pallete img ,.pattern img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.pallete img:hover , .pattern img:hover {
+  transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+.pallete-name , .pattern-name {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  width: 230.48px;
+  height: 22.16px;
+}
+/*empty*/
+.pallete-empty,.pattern-empty {
+  width:230.48px;
+  height: 206.54px;
+  background-color: #40576D12; 
 }
