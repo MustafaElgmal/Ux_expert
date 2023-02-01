@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Landing2 from '../component/landing2/Landing2'
 
 const SearchResults = () => {
@@ -6,6 +7,7 @@ const SearchResults = () => {
     <div>
       <Landing2/>
     </div>
+
   )
 }
 
