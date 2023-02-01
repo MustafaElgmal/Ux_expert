@@ -15,18 +15,9 @@ const ColorPallets = () => {
                 <button className='see-all'>See all</button>
             </div>
             <div className='swip-part'>
-                <Swiper            
-                    navigation={true}
-                    Navigation={{
-                        clickable: true,
-                    }}
-                    modules={[Navigation]}
-                    className="mySwiper"
-                >
-                    <SwiperSlide>
                         <Swiper
-                        slidesPerView={6}
-                        spaceBetween={16}
+                        slidesPerView={4}
+                        spaceBetween={2}
                         navigation={true}
                         Navigation={{
                             clickable: true,
@@ -60,14 +51,7 @@ const ColorPallets = () => {
                         <SwiperSlide>
                             <div className="pallete-empty"></div>
                             <div className='pallete-name'>color pallette #6</div>
-                        </SwiperSlide>
-                    </Swiper>           
-                    </SwiperSlide>
-                    <SwiperSlide>Slide 2</SwiperSlide>
-                        <SwiperSlide>Slide 3</SwiperSlide>
-                        <SwiperSlide>Slide 4</SwiperSlide>
-                        <SwiperSlide>Slide 5</SwiperSlide>
-                        <SwiperSlide>Slide 6</SwiperSlide>
+                        </SwiperSlide>           
                 </Swiper>
             </div>
         </div>

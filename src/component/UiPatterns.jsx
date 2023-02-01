@@ -15,18 +15,9 @@ const UiPattern = () => {
             <button className='see-all'>See all</button>
         </div>
         <div className='swip-part'>
-            <Swiper
-                navigation={true}
-                Navigation={{
-                    clickable: true,
-                }}
-                modules={[Navigation]}
-                className="mySwiper"
-            >
-                <SwiperSlide>
                     <Swiper
-                    slidesPerView={6}
-                    spaceBetween={16}
+                    slidesPerView={4}
+                    spaceBetween={2}
                     navigation={true}
                     Navigation={{
                         clickable: true,
@@ -61,13 +52,6 @@ const UiPattern = () => {
                         <div className='pattern-name'>UI Pattern F</div>
                     </SwiperSlide>
                 </Swiper>           
-                </SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                    <SwiperSlide>Slide 3</SwiperSlide>
-                    <SwiperSlide>Slide 4</SwiperSlide>
-                    <SwiperSlide>Slide 5</SwiperSlide>
-                    <SwiperSlide>Slide 6</SwiperSlide>
-            </Swiper>
         </div>
     </div>
     )

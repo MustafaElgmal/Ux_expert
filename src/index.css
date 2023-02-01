@@ -9,8 +9,6 @@ body {
     sans-serif,poppins;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    width: 1920px;
-    height: 1080px;
 }
 
 code {
@@ -19,30 +17,24 @@ code {
 }
 /*head part */
 .head-container {
-  height: 117.02px;
-  width: 1920px;
   display: flex;
   font-family: poppins;
   flex-direction: row;
+  width: 100%;
+  padding:3% 10% 3% 10%;
 }
 
 .logo-container  {
-  width: 173.68px;
-  height: 55.99px;
-  margin-right: 619.86px;
-  margin: 31.05px 619.86px 29.98px 138.39px ;
+  margin-right:45%;
 }
 .design-bttn {
-  width: 260px;
-  height:56px;
-  margin-top: 30.1px;
-  margin-bottom: 30.92px;
-  margin-right: 16px;
+  width:25%;
   background: #0085F7;
   color: #FFFFFF;
   font-size: 16px;
   font-weight: 400;
   text-align: center;
+  margin-right: 1%;
   border-radius: 4px;
   transition:3s 3s;
   -webkit-border-radius: 4px;
@@ -64,11 +56,7 @@ code {
   direction: rtl;
 }
 .login {
-  width: 250px;
-  height: 56px;
-  margin-top: 30.1px;
-  margin-bottom: 30.92px;
-  margin-right: 140px;
+  width: 25%;
   color: #0085F7;
   background: #FFFFFF;
   font-size: 16px;
@@ -93,35 +81,30 @@ code {
   display:flex;
   flex-direction: column;
   text-align: left;
-  width: 1780px;
   font-family: poppins;
+  width: 100%;
 }
 .header {
-  font-size: 32px;
+  font-size: 25px;
   font-weight: 700;
   text-align: left;
-  width: 650px;
-  height: 45px;
-  margin-left: 139px;
-  margin-top: 32px;
-  margin-bottom: 32px;
+  width: 60%;
+  padding: 3% 10% 1.5% 10%;
   color: #0D1216;
 }
 .guide-sentense {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: 600;/*semibold*/
-  width: 990px;
+  width: 80%;
   height: 33px;
-  margin-left: 140px;
-  margin-bottom: 32px;
+  padding: 1.5% 10% 3% 10%;
+
 }
 .one,.two,.three,.four,.five {
-  font-size: 24px;
+  font-size: 18px;
   color: #000;
-  margin-left: 140px;
-  margin-right: 240px;
-  max-width: 1645px;
-  margin-bottom: 24px;
+  width:100%;
+  padding: 0.5% 10% 0.5% 10%;
 }
 .highlighted-sentense , .color-details {
   font-weight: 700;
@@ -129,29 +112,26 @@ code {
 /****************************************/
 /*color pallets and ui pattern*/
 .color-pallet-container,.ui-pattern-container {
-  width: 1702px;
+  width:100%;
   font-family: poppins;
 }
 .title {
   display:flex;
   flex-direction: row;
+  width: 100%;
 }
 .title div {
-  width: 500px;
-  height: 33px;
-  font-size: 24px;
+  width: 77%;
+  font-size: 20px;
   font-weight: 700;
   text-align: left;
-  margin:39.65px 750px 21.59px 123.61px;
+  padding:3% 10% 3% 10%;
 }
 .title .see-all {
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
-  width: 100px;
-  height: 29.25px;
-  margin-top:39.65px ;
-  margin-bottom: 21.59px;
-  margin-right: 122.33px;
+  width:20%;
+  padding:3% ;
   text-align: center;
   transition: 0.5s;
   -webkit-transition: 0.5s;
@@ -160,26 +140,17 @@ code {
   -o-transition: 0.5s;
 }
 .title .see-all:hover {
-  font-size: 24px;
-  font-weight: 600;
-  width: 100px;
-  height: 29.25px;
-  margin-right: 122.33px;
-  text-align: center;
   color: #0085F7;
   cursor:pointer;
 }
 .swiper-side  {
-  width: 204.31px;
-  height: 251.55px; 
-  margin-bottom:42.35px;
+  width: 100%;
 }
 .swip-part{
-  margin-left: 124.10px;
-  margin-right: 124.10px;
+  padding: 3% 10% 3% 10%;
 }
 .pallete,.pattern {
-  width:230px;
+  width:80%;
   height: 206.91px;
   overflow: hidden;
 }
@@ -204,12 +175,11 @@ code {
   text-align: center;
   font-size: 18px;
   font-weight: 400;
-  width: 230.48px;
-  height: 22.16px;
+  width: 90%;
 }
 /*empty*/
 .pallete-empty,.pattern-empty {
-  width:230.48px;
+  width:80%;
   height: 206.54px;
   background-color: #40576D12; 
 }
