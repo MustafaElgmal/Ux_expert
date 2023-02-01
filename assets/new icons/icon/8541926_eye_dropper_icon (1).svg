@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="27.165" height="27.165" viewBox="0 0 27.165 27.165">
+  <defs>
+    <linearGradient id="linear-gradient" x1="0.926" y1="0.062" x2="0" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#7d2ae7"/>
+      <stop offset="0.685" stop-color="#10a6ca"/>
+      <stop offset="1" stop-color="#0085f7"/>
+    </linearGradient>
+  </defs>
+  <path id="_8541926_eye_dropper_icon" data-name="8541926_eye_dropper_icon" d="M2.182,17.554a3.373,3.373,0,0,0-.988,2.385v2.4L-.493,25.287s-.422,1.265,0,1.686,1.686,0,1.686,0l2.951-1.686h2.4A3.372,3.372,0,0,0,8.925,24.3L15.6,17.628,8.854,10.883ZM25,1.477a5.056,5.056,0,0,0-7.153,0L13.789,5.539l-.69-.69a1.264,1.264,0,0,0-1.788,0L9.151,7.007a1.265,1.265,0,0,0,0,1.788l8.533,8.533a1.264,1.264,0,0,0,1.788,0l2.159-2.158a1.265,1.265,0,0,0,0-1.788l-.69-.69L25,8.63a5.056,5.056,0,0,0,0-7.153Z" transform="translate(0.68 0.005)" fill="url(#linear-gradient)"/>
+</svg>

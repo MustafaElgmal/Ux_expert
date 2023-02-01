@@ -1,15 +1,10 @@
 import React from 'react'
-import Header from'../component/Header'
-import ColorPallets from '../component/ColorPallets'
-import UiPatterns from '../component/UiPatterns'
+
+import Landing1 from '../component/landing page 1/Landing1'
+
 const Home = () => {
   return (
-    <div>
-        <Header/>
-        <ColorPallets/>
-        <UiPatterns/>
-      </div>
-    
+    <Landing1/>
   )
 }
 

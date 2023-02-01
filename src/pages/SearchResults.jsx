@@ -1,8 +1,13 @@
 import React from 'react'
-import SearchContent from'../component/SearchContent'
+
+import Landing2 from '../component/landing2/Landing2'
+
 const SearchResults = () => {
   return (
-    <div><SearchContent/></div>
+    <div>
+      <Landing2/>
+    </div>
+
   )
 }
 
