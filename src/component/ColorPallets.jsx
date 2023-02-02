@@ -5,9 +5,9 @@ import { saveAs } from 'file-saver';
 import "swiper/css";
 import "swiper/css/navigation";
 import examplecolorpallet from '../assets/colorpallet1.png';
-const ColorPallets = () => {
+const ColorPallet = () => {
     return (
-        <div className='color-pallet-container'>
+        <div className='color-pallet-container h-[20%]'>
             <div className='title'>
                 <div>
                     Trendy color palettes you may like..
@@ -59,4 +59,4 @@ const ColorPallets = () => {
 }
 
 
-export default ColorPallets
+export default ColorPallet
