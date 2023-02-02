@@ -1,11 +1,21 @@
-import React from 'react'
-
-import Landing1 from '../component/landing page 1/Landing1'
+import React from "react";
+import Landing1 from "../component/landing page 1/Landing1";
+import Header from "../component/Header";
+import ColorPallet from "../component/ColorPallets";
+import UiPattern from '../component/UiPatterns'
+import Footer from '../component/Footer'
 
 const Home = () => {
   return (
-    <Landing1/>
-  )
-}
+    <div className="min-h-screen">
+      <Header />
+      <Landing1 />
+      <ColorPallet/>
+      <UiPattern />
+      <Footer />
 
-export default Home
+    </div>
+  );
+};
+
+export default Home;

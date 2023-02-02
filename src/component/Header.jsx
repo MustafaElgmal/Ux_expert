@@ -1,8 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react';
 import UxPertLogo from '../assets/uxpertlogo.png';
 const Header = () => {
   return (
-    <div className="head-container">
+    <div className="head-container h-[20%]">
       <div className="logo-container">
         <img src={UxPertLogo}/>
       </div> 

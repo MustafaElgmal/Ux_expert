@@ -1,8 +1,7 @@
 import './App.css';
-
 import SearchResults from './pages/SearchResults'
 import Home from './pages/Home';
-import { Route,RouterProvider, createBrowserRouter } from 'react-router-dom';
+import {RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 
 const router = createBrowserRouter([{
@@ -10,13 +9,13 @@ const router = createBrowserRouter([{
   element:<Home/>
 },
 {
-  path:"search",
+  path:"/search",
   element:<SearchResults/>
 }])
 
 function App() {
   return (
-    <div className="App">
+    <div className="App bg-[#FAF8F8]">
       <RouterProvider router={router}/>
     </div>
   );
