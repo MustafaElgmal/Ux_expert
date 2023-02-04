@@ -1,11 +1,11 @@
 import React from 'react';
 const SearchContent = () => {
     return ( 
-        <div className="content-container">
-            <div className='header'>
+        <div className=" flex flex-col text-left w-full">
+            <div className=' font-bold  text-[25px] text-left w-[60%] px-[10%] pt-[3%] pb-[1.5%] text-[#0D1216]'>
                 <h2>You searched for "Medicine" Domain..</h2>
             </div>
-            <div className="guide-sentense">
+            <div className="text-base font-medium w-full px-[10%] pt-[1.5%] pb-[3%]">
                 <h3>Here are some tips to help you make a great project regarding medicine domain:</h3>
             </div>
             <div className='one'>

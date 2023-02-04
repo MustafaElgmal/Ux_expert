@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Zen+Kaku+Gothic+New:wght@500&display=swap');
+html {
+      font-family: poppins;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -15,171 +18,52 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-/*head part */
-.head-container {
-  display: flex;
-  font-family: poppins;
-  flex-direction: row;
-  width: 100%;
-  padding:3% 10% 3% 10%;
+/*for create design button*/
+.design-bttn .last-i {
+  display: none;
+  transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  -moz-transform: scaleX(-1);
+  -ms-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
 }
-
-.logo-container  {
-  margin-right:45%;
+.design-bttn:hover > .first-i {
+  display:none;
 }
-.design-bttn {
-  width:25%;
-  background: #0085F7;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: center;
-  margin-right: 1%;
-  border-radius: 4px;
-  transition:3s 3s;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  -webkit-transition:3s 3s;
-  -moz-transition:3s 3s;
-  -ms-transition:3s 3s;
-  -o-transition:3s 3s;
-}
-.design-bttn i {
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 23px;
-  height: 23px;
-}
-.design-bttn:hover {
-  direction: rtl;
-}
-.login {
-  width: 25%;
-  color: #0085F7;
-  background: #FFFFFF;
-  font-size: 16px;
-  font-weight: 400;
-  text-align: center;
-  border-radius: 8px;
-  border:1px solid #0085F7;
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  -ms-border-radius: 8px;
-  -o-border-radius: 8px;
-}
-.login i {
-  padding-left: 5px;
-  padding-right: 5px;
-  width: 28.56px;
-  height: 28.56px;
+.design-bttn:hover > .last-i {
+  display:inline-block;
 }
 /****************************************************/
 /*content of searching*/
-.content-container {
-  display:flex;
-  flex-direction: column;
-  text-align: left;
-  font-family: poppins;
-  width: 100%;
-}
-.header {
-  font-size: 25px;
-  font-weight: 700;
-  text-align: left;
-  width: 60%;
-  padding: 3% 10% 1.5% 10%;
-  color: #0D1216;
-}
-.guide-sentense {
-  font-size: 16px;
-  font-weight: 600;/*semibold*/
-  width: 80%;
-  height: 33px;
-  padding: 1.5% 10% 3% 10%;
-
-}
 .one,.two,.three,.four,.five {
   font-size: 18px;
   color: #000;
-  width:100%;
+  width: 100%;
+  font-weight: normal;
   padding: 0.5% 10% 0.5% 10%;
 }
 .highlighted-sentense , .color-details {
   font-weight: 700;
 }
-/****************************************/
-/*color pallets and ui pattern*/
-.color-pallet-container,.ui-pattern-container {
+
+.color-content {
+  display: none;
+}
+.btn-color:hover {
   width:100%;
-  font-family: poppins;
+
 }
-.title {
-  display:flex;
-  flex-direction: row;
-  width: 100%;
+.btn-color:hover > .color-content {
+  display:block;
 }
-.title div {
-  width: 77%;
-  font-size: 20px;
-  font-weight: 700;
-  text-align: left;
-  padding:3% 10% 3% 10%;
-}
-.title .see-all {
-  font-size: 20px;
-  font-weight: 600;
-  width:20%;
-  padding:3% ;
-  text-align: center;
+.download ,.details {
   transition: 0.5s;
+  transition-delay:1s;
   -webkit-transition: 0.5s;
   -moz-transition: 0.5s;
   -ms-transition: 0.5s;
   -o-transition: 0.5s;
 }
-.title .see-all:hover {
-  color: #0085F7;
-  cursor:pointer;
-}
-.swiper-side  {
-  width: 100%;
-}
-.swip-part{
-  padding: 3% 10% 3% 10%;
-}
-.pallete,.pattern {
-  width:80%;
-  height: 206.91px;
-  overflow: hidden;
-}
-.pallete img ,.pattern img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: 0.5s;
-  -webkit-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -o-transition: 0.5s;
-}
-.pallete img:hover , .pattern img:hover {
-  transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  -moz-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  -o-transform: scale(1.1);
-}
-.pallete-name , .pattern-name {
-  text-align: center;
-  font-size: 18px;
-  font-weight: 400;
-  width: 90%;
-}
-/*empty*/
-.pallete-empty,.pattern-empty {
-  width:80%;
-  height: 206.54px;
-  background-color: #40576D12; 
+.download:hover ,.details:hover{
+  background-color: #EEEDE7;
 }
