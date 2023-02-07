@@ -11,6 +11,6 @@ const Header = () => {
         <button class=' md:w-[30%] md:basis-4/12 lg:w-[25%] lg:basis-3/12 pt-2 text-[#0085F7] font-normal bg-[#FFFFFF] rounded-lg border-[1px] border-[#0085F7] text-base text-center  '><i class="fa fa-user-circle mx-[5px] w-9 h-9" aria-hidden="true"></i>Login</button>
     </div>
   )
-}
+} 
 
 export default Header
