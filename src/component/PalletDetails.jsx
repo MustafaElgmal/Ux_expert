@@ -16,10 +16,10 @@ const PalletDetails = (props) => {
         <div className='my-[3%] mx-[10%]'>
             <div className='breadcrumbs flex flex-row justify-start font-medium text-[36px]'>
                 <button className='hover:text-[#0085F7] mr-[8px]'><i class="fa fa-home"></i> Home </button>
-                <span className='font-normal'> &gt; </span>
+                <span className='font-normal '>&#187;</span>
                 <span className='ml-[8px]'> Pallete</span>
             </div>
-            <div className="interactives   flex flex-row justify-end gap-2 ">
+            <div className="interactives   flex flex-row justify-end gap-2 border-2 rounded-[10px] w-[100px] text-center ml-[90%] pr-[2%] shadow-md ">
                 <button
                     className={"like-button " + (isLike ? "likes" : "")}
                     onClick={onLikeButtonClick}
