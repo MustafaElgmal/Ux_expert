@@ -1,17 +1,13 @@
 import React, { useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
 import html2canvas from "html2canvas";
-import { Navigation } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
 import heart from "../assets/heart.png";
-import ColorPallets from "./ColorPallet";
+import ColorPallet from "./ColorPallet";
 const pallets = [
   {
     colors: ["#CDB4DB", "#FFC8DD", "#FFAFCC", "#BDE0FE", "#A2D2FF"],
   },
 ];
-const ColorPallet = () => {
+const SimilarPallets = () => {
   const [like, setLike] = useState(0),
     [isLike, setIsLike] = useState(false),
     onLikeButtonClick = () => {
@@ -46,30 +42,14 @@ const ColorPallet = () => {
     } else {
       window.open(data);
     }
-  };
+  };  
   return (
-    <div className=" w-full  px-[10%] py-[3%]">
-      <div className="flex flex-row w-full gap-x-24">
-        <div className="basis-11/12  w-[77%] text-xl font-bold text-left">
-          Trendy color palettes you may like..
-        </div>
-        <button className=" md:basis-3/12 w-[9%] lg:basis-1/12 text-xl font-semibold text-center transition-[0.5s] hover:text-[#0085F7]">
-          See all
-        </button>
-      </div>
-      <Swiper
-        slidesPerView={4}
-        spaceBetween={8}
-        navigation={true}
-        Navigation={{
-          clickable: true,
-        }}
-        modules={[Navigation]}
-        className="mySwiper my-[5%] "
-      >
-        {pallets.map((pallet) => (
-          <SwiperSlide className="w-[25%]  overflow-hidden ">
-              <ColorPallets palletColors={pallet.colors} printRef={printRef} />
+    <div className="my-[3%] ">
+      <div className="font-bold text-left text-5xl ">Similar palettes</div>
+          <div className=" pallet-cont flex flex-row w-full max-h-[350px] gap-[10px]  my-[5%] flex-wrap overflow-hidden">
+          {pallets.map((pallet) => (
+          <div className="w-[24%] ">
+            <ColorPallet palletColors={pallet.colors} printRef={printRef} />
             <div className="interactives flex flex-row justify-end gap-2">
               <button
                 className={"like-button " + (isLike ? "liked" : "")}
@@ -111,11 +91,18 @@ const ColorPallet = () => {
                 </button>
               </div>
             )}
-          </SwiperSlide>
+          </div>
         ))}
-      </Swiper>
+    
+            
+          </div> 
+          <button onClick={(e)=>{document.querySelector('.pallet-cont').style.overflow="visible";
+                                  document.querySelector('.pallet-cont').style.maxHeight="700px";
+        }} className="text-center text-[24px] font-normal border-2 rounded-[10px] bg-[#FFFFFF] w-[40%] h-full  shadow-md hover:bg-[#0085F7] hover:text-white mt-[100px]" >
+              see more palettes
+          </button>
     </div>
   );
 };
 
-export default ColorPallet;
+export default SimilarPallets;

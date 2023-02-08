@@ -3,61 +3,52 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { saveAs } from "file-saver";
 import exampleuipattern from "../assets/uipattern1.png";
+import { downloadUiPattern } from "../utils/functions";
+const pattern = [
+  {
+    title: 'Collectible Achievements',
+    imgPath:exampleuipattern,
+  },
+];
 const UiPattern = () => {
   return (
-    <div className="ui-pattern-container h-[20%]">
-      <div className="title">
-        <div>Recent UI patterns</div>
-        <button className="see-all">See all</button>
+    
+    <div className="w-full  px-[10%] py-[3%]">
+      <div className="flex flex-row w-full gap-x-24">
+        <div className="basis-11/12  w-[77%] text-xl font-bold text-left">
+          Recent UI patterns
+        </div>
+        <button className=" md:basis-3/12 w-[9%] lg:basis-1/12 text-xl font-semibold text-center transition-[0.5s] hover:text-[#0085F7]">See all</button>
       </div>
-      <div className="swip-part">
         <Swiper
           slidesPerView={4}
-          spaceBetween={2}
+          spaceBetween={8}
           navigation={true}
           Navigation={{
             clickable: true,
           }}
           modules={[Navigation]}
-          className="mySwiper"
+          className="mySwiper my-[5%]"
         >
-          <SwiperSlide className="swiper-side">
-            <div className="pattern">
-              <button
-                onClick={() => {
-                  saveAs(exampleuipattern, "image.png");
-                }}
-              >
-                <img src={exampleuipattern} />
-              </button>
-            </div>
-            <div className="pattern-name">Collectible Achievements</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="pattern-empty"></div>
-            <div className="pattern-name"> UI Pattern B</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="pattern-empty"></div>
-            <div className="pattern-name">UI Pattern C</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="pattern-empty"></div>
-            <div className="pattern-name">UI Pattern D</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="pattern-empty"></div>
-            <div className="pattern-name">UI Pattern E</div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="pattern-empty"></div>
-            <div className="pattern-name">UI Pattern F</div>
-          </SwiperSlide>
+          {pattern.map((pattern) => (
+
+              <SwiperSlide className="w-[25%]  overflow-hidden">
+              <div className="overflow-hidden rounded-[10px] w-full h-[80%]  flex flex-row">
+                <button
+                  onClick={() => {
+                    downloadUiPattern(pattern.imgPath)
+                  }}
+                >
+                  <img src={pattern.imgPath}  className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"/>
+                </button>
+              </div>
+              <div className="text-center text-lg font-normal">{pattern.title}</div>
+              </SwiperSlide>
+
+          ))}
         </Swiper>
       </div>
-    </div>
   );
 };
 
