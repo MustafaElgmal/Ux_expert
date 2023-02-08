@@ -8,7 +8,7 @@ const Header = () => {
         <img src={UxPertLogo}/>
       </div> 
           <button className='design-bttn'><i className="fa  fa-paint-brush" aria-hidden="true"></i>Create a design</button>
-        <button class='login'><i class="fa fa-user-circle" aria-hidden="true"></i>Login</button>
+        <button className='login'><i className="fa fa-user-circle" aria-hidden="true"></i>Login</button>
     </div>
   )
 }

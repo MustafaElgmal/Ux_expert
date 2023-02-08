@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./landing1.css";
 
 function Landing1() {
+
+let selector=Array.from(document.querySelectorAll(".selector"))
+let button=Array.from(document.querySelectorAll(".icon-wrapper"))
+
+const [isActive,setisActive]=useState(1)
+
+const handleClick=(e)=>{
+  console.log(e)
+}
+
+// button.map((b,i)=>{
+//   b.addEventListener('click', ()=>{
+//     selector.map((s,j)=>{
+      
+//       if(i===j){
+//         s.classList.add('active');
+//       }
+//       else{
+//         s.classList.remove('active')
+//       }
+//       return s
+//     })
+//   return b})
+
+// })
+
   return (
     <div className="landing-container">
       <div className="top">What will you design today?</div>
@@ -31,7 +57,8 @@ function Landing1() {
       </div>
       <div className="bottom-wrapper">
         <div className="bottom">
-          <div className="first-icon">
+          <div className="first-icon" >
+            <div className="icon-wrapper" onClick={()=> setisActive(1)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="38"
@@ -44,10 +71,13 @@ function Landing1() {
                 fill="#fff"
               />
             </svg>
+            </div>
             <p>For You</p>
+
+            <span className={`selector ${isActive===1 && 'active'}`}></span>
           </div>
           <div className="second-icon">
-            <div className="icon-wrapper">
+            <div className="icon-wrapper" onClick={()=>setisActive(2)}>
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
@@ -65,9 +95,10 @@ function Landing1() {
               </div>
             </div>
             <p>UI Patterns</p>
+            <span className={`selector ${isActive===2&& 'active'}`}></span>
           </div>
           <div className="third-icon">
-            <div className="icon-wrapper">
+            <div className="icon-wrapper" onClick={()=>setisActive(3)}>
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
@@ -116,16 +147,17 @@ function Landing1() {
               </div>
             </div>
             <p>Color Palettes</p>
+            <span className={`selector ${isActive===3 && 'active'}`}></span>
           </div>
           <div className="fourth-icon">
-            <div className="icon-wrapper">
+            <div className="icon-wrapper" onClick={()=>setisActive(4)}>
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
                   className="fa-icon-1"
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -136,6 +168,7 @@ function Landing1() {
               </div>
             </div>
             <p>Color Pallete From Logo</p>
+            <span className={`selector ${isActive===4 && 'active'}`}></span>
           </div>
         </div>
       </div>
