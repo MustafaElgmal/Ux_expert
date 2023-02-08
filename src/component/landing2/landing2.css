@@ -13,13 +13,13 @@
     color:white ;
     align-items: center;
     font-size: 36px;
+    
 }
 .under-wrapper{
     display: flex;
     align-items: center;
-    margin-top: 5%;
-    margin-left: 6%;
-    
+    margin-left: 9%;
+    margin-block: 6%;
 }
 .home-wrapper{
     cursor: pointer;

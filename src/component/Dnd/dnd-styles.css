@@ -1,0 +1,91 @@
+.main-container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.dnd-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap:40px;
+    align-items: center;
+}
+.dnd{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 180px;
+    font-size: 18px;
+    border-radius: 15px;
+    border: 1px dashed #707070;
+    position: relative;    
+}
+
+.extract-button{
+    display: flex;
+    justify-content: center;
+    background-color: #0085F7;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 400px;
+}
+
+.uploaded{
+    padding: 10px;
+    font-size: 18px;
+}
+
+.check-icon{
+    color:#1FE700;
+    display: inline-block;
+}
+
+.load{
+    position: absolute;
+    background-color: white;
+    width: 800px;
+    height: 180px;
+    z-index: 10;
+    border: 1px dashed #707070;
+    border-radius: 15px;
+
+}
+
+.load p{
+    font-size: 20px;
+    padding: 15px;
+    position: absolute;
+    top: 55%;
+    left: 41%;
+}
+
+.load-animation{
+    position: absolute;
+    top: 15%;
+    right: 46%;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    border: 7px solid #0085F7;
+    border-left: 7px solid transparent;
+    animation-name:load;
+    
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+}
+
+@keyframes load {
+    0%{
+
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(100deg);
+        
+    }
+
+}
