@@ -44,6 +44,7 @@ code {
 }
 .highlighted-sentense , .color-details {
   font-weight: 700;
+  color:blue;
 }
 
 .color-content {
