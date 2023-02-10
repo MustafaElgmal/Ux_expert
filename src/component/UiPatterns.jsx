@@ -14,12 +14,12 @@ const pattern = [
 const UiPattern = () => {
   return (
     
-    <div className="w-full  px-[10%] py-[3%]">
+    <div className="w-full  px-[10%] py-[1%]">
       <div className="flex flex-row w-full gap-x-24">
         <div className="basis-11/12  w-[77%] text-xl font-bold text-left">
           Recent UI patterns
         </div>
-        <button className=" md:basis-3/12 w-[9%] lg:basis-1/12 text-xl font-semibold text-center transition-[0.5s] hover:text-[#0085F7]">See all</button>
+        <button className=" md:basis-3/12 w-[9%] lg:basis-1/12 text-xl font-[500] text-center transition-[0.5s] hover:text-[#0085F7] hover:font-semibold">See all</button>
       </div>
         <Swiper
           slidesPerView={4}
@@ -29,7 +29,7 @@ const UiPattern = () => {
             clickable: true,
           }}
           modules={[Navigation]}
-          className="mySwiper my-[5%]"
+          className="mySwiper my-[1.5%]"
         >
           {pattern.map((pattern) => (
 
