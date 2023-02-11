@@ -14,6 +14,7 @@
 .dnd{
     display: flex;
     align-items: center;
+    background-color: #fdfdfd;
     justify-content: center;
     width: 800px;
     height: 180px;
@@ -21,6 +22,10 @@
     border-radius: 15px;
     border: 1px dashed #707070;
     position: relative;    
+}
+
+.button-container{
+    padding-bottom: 30px;
 }
 
 .extract-button{
@@ -31,6 +36,13 @@
     padding: 10px;
     border-radius: 10px;
     width: 400px;
+    transition: 0.1s;
+}
+
+.extract-button:hover{
+    
+    font-weight:500;
+    box-shadow:inset 3px 3px 5px 5px #74747449;
 }
 
 .uploaded{
