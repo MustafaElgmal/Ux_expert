@@ -44,6 +44,7 @@ code {
 }
 .highlighted-sentense , .color-details {
   font-weight: 700;
+  color:blue;
 }
 
 .color-content {
@@ -66,4 +67,8 @@ code {
 }
 .download:hover ,.details:hover{
   background-color: #EEEDE7;
+}
+.colored-btn {
+  background-image: url('./assets/heart.svg');
+  margin-bottom: 10px;
 }

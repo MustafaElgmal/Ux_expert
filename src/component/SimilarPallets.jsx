@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import html2canvas from "html2canvas";
-import heart from "../assets/heart.png";
+import heart from "../assets/heart.svg";
 import ColorPallet from "./ColorPallet";
 const pallets = [
   {
@@ -64,10 +64,7 @@ const SimilarPallets = () => {
                                     margin-left:74.95%;
                                 }
                                 `}</style>
-                <i
-                  class=" fa fa-heart-o text-[#f66868] text-[24px]"
-                  aria-hidden="true"
-                ></i>
+                
               </button>
               <span className="text-[#7D7C83] text-sm">{`${like}`}</span>
               <button onClick={setToggle}>

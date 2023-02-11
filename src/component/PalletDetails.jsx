@@ -1,6 +1,7 @@
 import React ,{useState} from 'react'
-import heart from "../assets/heart.png";
+import heart from "../assets/heart.svg";
 import SimilarPallets from './SimilarPallets';
+import hearto from "../assets/heart-o.svg";
 /* it should take colors from the pervious page where pallet details button */
 const PalletDetails = (props) => {
     
@@ -19,24 +20,27 @@ const PalletDetails = (props) => {
                 <span className='font-normal '>&#187;</span>
                 <span className='ml-[8px]'> Pallete</span>
             </div>
-            <div className="interactives   flex flex-row justify-end gap-2 border-2 rounded-[10px] w-[100px] text-center ml-[90%] pr-[2%] shadow-md ">
+            <div className="interactives bg-white  h-[30px] pt-[5px] px-[3px]  flex flex-row justify-end gap-2 border-2 rounded-[10px] w-[100px] text-center ml-[90%] pr-[2%] shadow-md  ">
                 <button
-                    className={"like-button " + (isLike ? "likes" : "")}
+                    className={"like-btn " + (isLike ? "likes" : "like-btn")}
                     onClick={onLikeButtonClick}
                 >
                     <style>{` 
+                                    .like-btn {
+                                        background-image:url('${hearto}');
+                                        background-repeat: no-repeat;
+                                        width:100%;
+                                        height:20px;     
+                                    }
                                     .likes {
                                     background-image:url('${heart}');
                                         width:100%;
-                                        height:24px;
+                                        height:20px;
                                         background-repeat: no-repeat;
-                                        margin-left:100%;
+                                      
                                     }
                                     `}</style>
-                    <i
-                    class=" fa fa-heart-o text-[#f66868] text-[24px]"
-                    aria-hidden="true"
-                    ></i>
+                    
                 </button>
                 <span className="text-[#7D7C83] text-sm">{`${like}`}</span>
                 </div>

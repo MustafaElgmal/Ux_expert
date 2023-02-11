@@ -4,7 +4,8 @@ import html2canvas from "html2canvas";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import heart from "../assets/heart.png";
+import heart from "../assets/heart.svg";
+import hearto from "../assets/heart-o.svg";
 import ColorPallets from "./ColorPallet";
 const pallets = [
   {
@@ -47,13 +48,14 @@ const ColorPallet = () => {
       window.open(data);
     }
   };
+  const[isclicked,setIsClicked]=useState(false);
   return (
-    <div className=" w-full  px-[10%] py-[3%]">
+    <div className=" w-full  px-[10%] py-[1%]">
       <div className="flex flex-row w-full gap-x-24">
         <div className="basis-11/12  w-[77%] text-xl font-bold text-left">
           Trendy color palettes you may like..
         </div>
-        <button className=" md:basis-3/12 w-[9%] lg:basis-1/12 text-xl font-semibold text-center transition-[0.5s] hover:text-[#0085F7]">
+        <button className=" md:basis-3/12 w-[9%] lg:basis-1/12 text-xl font-[500] text-center transition-[0.5s] hover:text-[#0085F7] hover:font-semibold">
           See all
         </button>
       </div>
@@ -65,29 +67,37 @@ const ColorPallet = () => {
           clickable: true,
         }}
         modules={[Navigation]}
-        className="mySwiper my-[5%] "
+        className="mySwiper mt-[2%] mb-[5px] "
       >
         {pallets.map((pallet) => (
-          <SwiperSlide className="w-[25%]  overflow-hidden ">
+          <SwiperSlide className="w-[25%]  overflow-hidden   ">
               <ColorPallets palletColors={pallet.colors} printRef={printRef} />
-            <div className="interactives flex flex-row justify-end gap-2">
+            <div className="interactives flex flex-row justify-end gap-[9px] mt-2  ">
               <button
-                className={"like-button " + (isLike ? "liked" : "")}
+                className={isLike ? "liked" : "like-button"}
                 onClick={onLikeButtonClick}
               >
                 <style>{` 
+                          .like-button {
+                            background-image:url('${hearto}');
+                            background-repeat:no-repeat;
+                            width:100%;
+                            height:24px;
+                            margin-left:73%;
+                          }
                                 .liked {
                                 background-image:url('${heart}');
-                                    width:100%;
-                                    height:24px;
-                                    background-repeat: no-repeat;
-                                    margin-left:74.95%;
+                                background-repeat:no-repeat;
+                                width:100%; 
+                                height:24px;
+                               
                                 }
+                             
+                                  
+                                }
+                                
                                 `}</style>
-                <i
-                  class=" fa fa-heart-o text-[#f66868] text-[24px]"
-                  aria-hidden="true"
-                ></i>
+                
               </button>
               <span className="text-[#7D7C83] text-sm">{`${like}`}</span>
               <button onClick={setToggle}>
@@ -97,7 +107,7 @@ const ColorPallet = () => {
             {toggle && (
               <div className="ml-[20%]  rounded-lg md:text-right md:-ml-12 md:text-xs">
                 <button
-                  className="download w-48  text-right mb-[5px]  "
+                  className="download w-48  text-right mb-[2px]  "
                   onClick={handleDownloadImage}
                 >
                   {" "}
