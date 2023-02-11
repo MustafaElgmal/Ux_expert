@@ -70,9 +70,9 @@ const ColorPallet = () => {
         className="mySwiper mt-[2%] mb-[5px] "
       >
         {pallets.map((pallet) => (
-          <SwiperSlide className="w-[25%]  overflow-hidden ">
+          <SwiperSlide className="w-[25%]  overflow-hidden   ">
               <ColorPallets palletColors={pallet.colors} printRef={printRef} />
-            <div className="interactives flex flex-row justify-end gap-[9px] mt-2 md:gap-[0] ">
+            <div className="interactives flex flex-row justify-end gap-[9px] mt-2 md:gap-[1px] md:flex md:flex-row-reverse md:justify-end md:w-full ">
               <button
                 className={isLike ? "liked" : "like-button"}
                 onClick={onLikeButtonClick}
@@ -91,6 +91,15 @@ const ColorPallet = () => {
                                 width:100%; 
                                 height:24px;
                                
+                                }
+                                @media screen and (min-width:768px){
+                                  .like-button{
+                                    margin-left:2%;
+                                  }
+                                  .liked {
+                                    margin-left:-100px;
+                                  }
+                                  
                                 }
                                 
                                 `}</style>

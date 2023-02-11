@@ -2,6 +2,7 @@ import './App.css';
 import SearchResults from './pages/SearchResults'
 import Home from './pages/Home';
 import {RouterProvider, createBrowserRouter } from 'react-router-dom';
+import Dnd from './component/Dnd/Dnd';
 
 
 const router = createBrowserRouter([{
@@ -11,7 +12,12 @@ const router = createBrowserRouter([{
 {
   path:"/search",
   element:<SearchResults/>
-}])
+},
+{
+  path:"/upload",
+  element:<Dnd/>
+}
+])
 
 function App() {
   return (
