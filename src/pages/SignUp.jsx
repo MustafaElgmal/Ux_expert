@@ -3,17 +3,19 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 
-const Login = () => {
+const SignUp = () => {
   const navigate = useNavigate();
   const [show, setShow] = useState(false);
   const formik = useFormik({
     initialValues: {
       userName: "",
       password: "",
+      email:"",
     },
     validationSchema: Yup.object({
       userName: Yup.string().required("Please Enter user name!"),
       password: Yup.string().required("Please Enter Password!"),
+      email: Yup.string().email('Please Enter vaild Email!').required("Please Enter Email!"),
     }),
     onSubmit: async (values) => {
       navigate("/");
@@ -26,7 +28,7 @@ const Login = () => {
       <div className=" flex login">
         <div className=" flex justify-center items-center loginRight">
           <div className="myform">
-            <h1 className="h1Form font-bold text-left">Sign In</h1>
+            <h1 className="h1Form font-bold text-left">Sign Up</h1>
             <form className="text-left">
               <div className="mt-5 ">
                 <label
@@ -51,6 +53,33 @@ const Login = () => {
                   <p className="text-red-500">
                     {formik.errors.userName && formik.touched.userName
                       ? formik.errors.userName
+                      : null}
+                  </p>
+                </div>
+              </div>
+              <div className="mt-5 ">
+                <label
+                  htmlFor="email"
+                  className=" textForm block text-sm font-medium text-gray-700"
+                >
+                  email
+                </label>
+                <div className="mt-1">
+                  <input
+                    id="email"
+                    name="email"
+                    value={formik.values.email}
+                    onBlur={formik.handleBlur}
+                    onChange={formik.handleChange}
+                    type="text"
+                    autoComplete="text"
+                    required
+                    placeholder="Please Enter email"
+                    className="text-gray-900  block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-300  shadow-sm focus:border-[#400860] focus:outline-none focus:ring-[#400860] sm:text-[12px]"
+                  />
+                  <p className="text-red-500">
+                    {formik.errors.email && formik.touched.email
+                      ? formik.errors.email
                       : null}
                   </p>
                 </div>
@@ -177,17 +206,17 @@ const Login = () => {
                   className=" signIn flex w-full justify-center rounded-md border border-transparent  py-2 px-4 text-sm  font-medium text-white shadow-sm  focus:outline-none focus:ring-2 hover:font-semibold "
                   onClick={() => formik.handleSubmit()}
                 >
-                  Sign in
+                  Sign Up
                 </button>
               </div>
             </form>
             <div className="flex justify-between mt-5 ">
-              <span className="dont">Don't you have an account?</span>
+              <span className="dont">Already Have an account?</span>
               <span
                 className="dont cursor-pointer"
-                onClick={() => navigate("/signup")}
+                onClick={() => navigate("/login")}
               >
-                Sign Up
+                Sign In
               </span>
             </div>
           </div>
@@ -213,4 +242,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default SignUp;
