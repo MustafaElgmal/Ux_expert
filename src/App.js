@@ -5,7 +5,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import ColorPalletDetails from "./pages/ColorPalletDetails";
 import ColorPalletFromLogo from "./pages/ColorPalletFromLogo";
 import ColorPallet from "./pages/ColorPallet";
-import UiPatterns from "./pages/UiPatterns";
+import UiPatterns from "./pages/ui patterns/UiPatterns";
 import CreateDesign from './pages/CreateDesign'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
