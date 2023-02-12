@@ -1,83 +1,106 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import "./landing1.css";
+import * as Yup from "yup";
+import { useFormik } from "formik";
+import { useNavigate } from "react-router-dom";
 
-function Landing1() {
+function Landing1({ isActive, setisActive }) {
+  const navigate = useNavigate();
+  const formik = useFormik({
+    initialValues: {
+      message: "",
+    },
+    validationSchema: Yup.object({
+      message: Yup.string().required(),
+    }),
+    onSubmit: async (values) => {
+      navigate("/search");
+      formik.resetForm();
+    },
+  });
 
-let selector=Array.from(document.querySelectorAll(".selector"))
-let button=Array.from(document.querySelectorAll(".icon-wrapper"))
-
-const [isActive,setisActive]=useState(1)
-
-const handleClick=(e)=>{
-  console.log(e)
-}
-
-// button.map((b,i)=>{
-//   b.addEventListener('click', ()=>{
-//     selector.map((s,j)=>{
-      
-//       if(i===j){
-//         s.classList.add('active');
-//       }
-//       else{
-//         s.classList.remove('active')
-//       }
-//       return s
-//     })
-//   return b})
-
-// })
+  const handleKeyDown = (event) => {
+    if (event.key === "Enter") {
+      if (formik.values.message !== "") {
+        navigate("/search");
+        formik.resetForm();
+      }
+    }
+  };
 
   return (
     <div className="landing-container">
       <div className="top">What will you design today?</div>
-      <div className="middle">
-        <Link to="/search" className="Search-wrapper">
-          <button className="search-button">
-            <svg
-              className="svg-icon-search-icon"
-              stroke="currentColor"
-              fill="currentColor"
-              strokeWidth="0"
-              viewBox="0 0 1024 1024"
-              height="1em"
-              width="1em"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M909.6 854.5L649.9 594.8C690.2 542.7 712 479 712 412c0-80.2-31.3-155.4-87.9-212.1-56.6-56.7-132-87.9-212.1-87.9s-155.5 31.3-212.1 87.9C143.2 256.5 112 331.8 112 412c0 80.1 31.3 155.5 87.9 212.1C256.5 680.8 331.8 712 412 712c67 0 130.6-21.8 182.7-62l259.7 259.6a8.2 8.2 0 0 0 11.6 0l43.6-43.5a8.2 8.2 0 0 0 0-11.6zM570.4 570.4C528 612.7 471.8 636 412 636s-116-23.3-158.4-65.6C211.3 528 188 471.8 188 412s23.3-116.1 65.6-158.4C296 211.3 352.2 188 412 188s116.1 23.2 158.4 65.6S636 352.2 636 412s-23.3 116.1-65.6 158.4z"></path>
-            </svg>
-          </button>
-        </Link>
-        <input
-          type="text"
-          placeholder="search for any domain to get tips to design it better"
-          className="search"
-        />
-      </div>
-      <div className="bottom-wrapper">
-        <div className="bottom">
-          <div className="first-icon" >
-            <div className="icon-wrapper" onClick={()=> setisActive(1)}>
+      <div className=" flex justify-center items-center p-[30px]">
+        <div className="flex relative items-center">
+          <div
+            className="absolute p-4 cursor-pointer"
+            onClick={() => formik.handleSubmit()}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="38"
-              height="38"
-              viewBox="0 0 54.105 54.105"
+              width="22.2"
+              height="21.88"
+              viewBox="0 0 22.2 21.88"
             >
               <path
                 id="Vector"
-                d="M54.1,27.052A27.052,27.052,0,1,1,27.052,0,26.988,26.988,0,0,1,54.1,27.052Zm-41.03-9.581a.6.6,0,0,0,.451.564,4.676,4.676,0,0,1,3.382,3.382s.113.338.789.225a.5.5,0,0,0,.451-.338,4.676,4.676,0,0,1,3.382-3.382.562.562,0,0,0,.338-.564.414.414,0,0,0-.113-.338.349.349,0,0,0-.225-.113,4.676,4.676,0,0,1-3.382-3.382.562.562,0,0,0-.564-.338c-.113,0-.225.113-.338.113l-.113.113a.349.349,0,0,0-.113.225,4.676,4.676,0,0,1-3.382,3.382.349.349,0,0,0-.225.113ZM40.917,37.535a.488.488,0,0,0-.225-.451,7.236,7.236,0,0,1-1.465-1.127A4.649,4.649,0,0,1,38.1,34.492a.564.564,0,0,0-.9,0,7.236,7.236,0,0,1-1.127,1.465A4.649,4.649,0,0,1,34.6,37.084a.488.488,0,0,0-.225.451.414.414,0,0,0,.113.338.11.11,0,0,0,.113.113,7.236,7.236,0,0,1,1.465,1.127A4.649,4.649,0,0,1,37.2,40.579a.77.77,0,0,0,.451.451c.225,0,.225-.113.338-.113a.349.349,0,0,0,.113-.225,7.236,7.236,0,0,1,1.127-1.465A4.649,4.649,0,0,1,40.691,38.1s.225-.113.225-.564ZM40.8,27.052a1.2,1.2,0,0,0-1.014-1.127,45.451,45.451,0,0,1-6.087-2.48,7.21,7.21,0,0,1-2.818-2.705c-1.014-1.24-2.705-6.425-2.705-6.425a1.133,1.133,0,0,0-2.254,0,45.451,45.451,0,0,1-2.48,6.087A7.21,7.21,0,0,1,20.74,23.22c-1.24,1.014-6.425,2.705-6.425,2.705a1.435,1.435,0,0,0-1.014,1.24,1.2,1.2,0,0,0,1.014,1.127,45.451,45.451,0,0,1,6.087,2.48,7.21,7.21,0,0,1,2.818,2.705c1.014,1.24,2.705,6.425,2.705,6.425a1.435,1.435,0,0,0,1.24,1.014A1.2,1.2,0,0,0,28.292,39.9a45.451,45.451,0,0,1,2.48-6.087A7.21,7.21,0,0,1,33.477,31c1.24-1.014,6.425-2.705,6.425-2.705.676-.225,1.014-.676.9-1.24Z"
-                fill="#fff"
+                d="M14.985,16.4a9.217,9.217,0,1,1,1.7-1.782l5.161,5.161A1.23,1.23,0,0,1,20.1,21.517Zm-5.776.2A7.373,7.373,0,1,0,4,14.442,7.373,7.373,0,0,0,9.21,16.6Z"
+                fill="#0d1216"
               />
             </svg>
+          </div>
+          <form>
+            <input
+              type="text"
+              name="message"
+              id="message"
+              value={formik.values.message}
+              onBlur={formik.handleBlur}
+              onChange={formik.handleChange}
+              onKeyDown={handleKeyDown}
+              className=" block search pl-[8%]"
+              placeholder="search for any domain to get tips to design it better"
+            />
+          </form>
+        </div>
+      </div>
+      <div className="bottom-wrapper">
+        <div className="bottom">
+          <div className="first-icon">
+            <div
+              className="icon-wrapper"
+              onClick={() => {
+                setisActive(1);
+              }}
+            >
+              <div className="white-backg"></div>
+              <div className="svg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="38"
+                  height="38"
+                  viewBox="0 0 54.105 54.105"
+                >
+                  <path
+                    id="Vector"
+                    d="M54.1,27.052A27.052,27.052,0,1,1,27.052,0,26.988,26.988,0,0,1,54.1,27.052Zm-41.03-9.581a.6.6,0,0,0,.451.564,4.676,4.676,0,0,1,3.382,3.382s.113.338.789.225a.5.5,0,0,0,.451-.338,4.676,4.676,0,0,1,3.382-3.382.562.562,0,0,0,.338-.564.414.414,0,0,0-.113-.338.349.349,0,0,0-.225-.113,4.676,4.676,0,0,1-3.382-3.382.562.562,0,0,0-.564-.338c-.113,0-.225.113-.338.113l-.113.113a.349.349,0,0,0-.113.225,4.676,4.676,0,0,1-3.382,3.382.349.349,0,0,0-.225.113ZM40.917,37.535a.488.488,0,0,0-.225-.451,7.236,7.236,0,0,1-1.465-1.127A4.649,4.649,0,0,1,38.1,34.492a.564.564,0,0,0-.9,0,7.236,7.236,0,0,1-1.127,1.465A4.649,4.649,0,0,1,34.6,37.084a.488.488,0,0,0-.225.451.414.414,0,0,0,.113.338.11.11,0,0,0,.113.113,7.236,7.236,0,0,1,1.465,1.127A4.649,4.649,0,0,1,37.2,40.579a.77.77,0,0,0,.451.451c.225,0,.225-.113.338-.113a.349.349,0,0,0,.113-.225,7.236,7.236,0,0,1,1.127-1.465A4.649,4.649,0,0,1,40.691,38.1s.225-.113.225-.564ZM40.8,27.052a1.2,1.2,0,0,0-1.014-1.127,45.451,45.451,0,0,1-6.087-2.48,7.21,7.21,0,0,1-2.818-2.705c-1.014-1.24-2.705-6.425-2.705-6.425a1.133,1.133,0,0,0-2.254,0,45.451,45.451,0,0,1-2.48,6.087A7.21,7.21,0,0,1,20.74,23.22c-1.24,1.014-6.425,2.705-6.425,2.705a1.435,1.435,0,0,0-1.014,1.24,1.2,1.2,0,0,0,1.014,1.127,45.451,45.451,0,0,1,6.087,2.48,7.21,7.21,0,0,1,2.818,2.705c1.014,1.24,2.705,6.425,2.705,6.425a1.435,1.435,0,0,0,1.24,1.014A1.2,1.2,0,0,0,28.292,39.9a45.451,45.451,0,0,1,2.48-6.087A7.21,7.21,0,0,1,33.477,31c1.24-1.014,6.425-2.705,6.425-2.705.676-.225,1.014-.676.9-1.24Z"
+                    fill="#0085f7"
+                  />
+                </svg>
+              </div>
             </div>
             <p>For You</p>
 
-            <span className={`selector ${isActive===1 && 'active'}`}></span>
+            <span className={`selector ${isActive === 1 && "active"}`}></span>
           </div>
           <div className="second-icon">
-            <div className="icon-wrapper" onClick={()=>setisActive(2)}>
+            <div
+              className="icon-wrapper"
+              onClick={() => {
+                setisActive(2);
+              }}
+            >
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
@@ -95,10 +118,15 @@ const handleClick=(e)=>{
               </div>
             </div>
             <p>UI Patterns</p>
-            <span className={`selector ${isActive===2&& 'active'}`}></span>
+            <span className={`selector ${isActive === 2 && "active"}`}></span>
           </div>
           <div className="third-icon">
-            <div className="icon-wrapper" onClick={()=>setisActive(3)}>
+            <div
+              className="icon-wrapper"
+              onClick={() => {
+                setisActive(3);
+              }}
+            >
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
@@ -147,10 +175,15 @@ const handleClick=(e)=>{
               </div>
             </div>
             <p>Color Palettes</p>
-            <span className={`selector ${isActive===3 && 'active'}`}></span>
+            <span className={`selector ${isActive === 3 && "active"}`}></span>
           </div>
           <div className="fourth-icon">
-            <div className="icon-wrapper" onClick={()=>setisActive(4)}>
+            <div
+              className="icon-wrapper"
+              onClick={() => {
+                setisActive(4);
+              }}
+            >
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
@@ -168,7 +201,7 @@ const handleClick=(e)=>{
               </div>
             </div>
             <p>Color Pallete From Logo</p>
-            <span className={`selector ${isActive===4 && 'active'}`}></span>
+            <span className={`selector ${isActive === 4 && "active"}`}></span>
           </div>
         </div>
       </div>

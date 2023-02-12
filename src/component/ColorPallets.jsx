@@ -7,12 +7,14 @@ import "swiper/css/navigation";
 import heart from "../assets/heart.svg";
 import hearto from "../assets/heart-o.svg";
 import ColorPallets from "./ColorPallet";
+import { useNavigate } from "react-router-dom";
 const pallets = [
   {
     colors: ["#CDB4DB", "#FFC8DD", "#FFAFCC", "#BDE0FE", "#A2D2FF"],
   },
 ];
 const ColorPallet = () => {
+  const navigate=useNavigate()
   const [like, setLike] = useState(0),
     [isLike, setIsLike] = useState(false),
     onLikeButtonClick = () => {
@@ -51,11 +53,11 @@ const ColorPallet = () => {
   const[isclicked,setIsClicked]=useState(false);
   return (
     <div className=" w-full  px-[10%] py-[1%]">
-      <div className="flex flex-row w-full gap-x-24">
+      <div className="flex justify-between w-full">
         <div className="basis-11/12  w-[77%] text-xl font-bold text-left">
           Trendy color palettes you may like..
         </div>
-        <button className=" md:basis-3/12 w-[9%] lg:basis-1/12 text-xl font-[500] text-center transition-[0.5s] hover:text-[#0085F7] hover:font-semibold">
+        <button className=" md:basis-3/12 w-[9%] lg:basis-1/12 text-xl font-[500] text-center transition-[0.5s] hover:text-[#0085F7] hover:font-semibold" onClick={()=>navigate('/colorPallet')}>
           See all
         </button>
       </div>

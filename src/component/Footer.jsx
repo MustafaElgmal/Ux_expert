@@ -1,11 +1,16 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className="w-full">
       <div className="footer1   lg:flex justify-center items-center gap-10 px-[10%] py-[5%]">
         <p>Want to Create Design?</p>
-        <div className="bttnFooter  flex justify-center items-center gap-3">
+        <div
+          className="bttnFooter  flex justify-center items-center gap-3"
+          onClick={() => navigate("/createdesign")}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32.896"
@@ -40,15 +45,40 @@ const Footer = () => {
             />
           </svg>
         </div>
-        <div className="flex justify-center items-center content gap-12 mt-14">
-          <p>Color Pallete From Logo</p>
-          <p>Designer Mode</p>
-          <p>Color Pallates</p>
-          <p>UI Patterns</p>
+        <div className="flex justify-center font-normal items-center content  gap-12 mt-14">
+          <p
+            className=" hover:font-semibold"
+            onClick={() => navigate("/colorPalletFromLogo")}
+          >
+            Color Pallete From Logo
+          </p>
+          <p className=" hover:font-semibold">Designer Mode</p>
+          <p
+            className=" hover:font-semibold"
+            onClick={() => navigate("/colorPallet")}
+          >
+            Color Pallates
+          </p>
+          <p
+            className=" hover:font-semibold"
+            onClick={() => navigate("/uiPattern")}
+          >
+            UI Patterns
+          </p>
         </div>
-        <div className="flex justify-center items-center content gap-12 content mt-14">
-          <p>Contact Us</p>
-          <p>About Us</p>
+        <div className="flex justify-center font-normal items-center content gap-12 content mt-14">
+          <p
+            className=" hover:font-semibold"
+            onClick={() => navigate("/contactus")}
+          >
+            Contact Us
+          </p>
+          <p
+            className=" hover:font-semibold"
+            onClick={() => navigate("/contactus")}
+          >
+            About Us
+          </p>
         </div>
         <div className="flex justify-center items-center content gap-12 content mt-14 ">
           <span className="absolute  bottom-5">
