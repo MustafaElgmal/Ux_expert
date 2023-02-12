@@ -67,8 +67,18 @@ const Footer = () => {
           </p>
         </div>
         <div className="flex justify-center font-normal items-center content gap-12 content mt-14">
-          <p className=" hover:font-semibold" onClick={() => navigate("/contactus")}>Contact Us</p>
-          <p className=" hover:font-semibold">About Us</p>
+          <p
+            className=" hover:font-semibold"
+            onClick={() => navigate("/contactus")}
+          >
+            Contact Us
+          </p>
+          <p
+            className=" hover:font-semibold"
+            onClick={() => navigate("/contactus")}
+          >
+            About Us
+          </p>
         </div>
         <div className="flex justify-center items-center content gap-12 content mt-14 ">
           <span className="absolute  bottom-5">

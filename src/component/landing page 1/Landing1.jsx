@@ -4,8 +4,7 @@ import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
-function Landing1() {
-  const [isActive, setisActive] = useState(1);
+function Landing1({ isActive, setisActive }) {
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
@@ -69,10 +68,12 @@ function Landing1() {
       <div className="bottom-wrapper">
         <div className="bottom">
           <div className="first-icon">
-            <div className="icon-wrapper" onClick={() =>{
-              setisActive(1)
-              navigate('/')
-            }}>
+            <div
+              className="icon-wrapper"
+              onClick={() => {
+                setisActive(1);
+              }}
+            >
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
@@ -94,10 +95,12 @@ function Landing1() {
             <span className={`selector ${isActive === 1 && "active"}`}></span>
           </div>
           <div className="second-icon">
-            <div className="icon-wrapper" onClick={() => {
-              setisActive(2)
-              navigate('/uiPattern')
-            }}>
+            <div
+              className="icon-wrapper"
+              onClick={() => {
+                setisActive(2);
+              }}
+            >
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
@@ -118,10 +121,12 @@ function Landing1() {
             <span className={`selector ${isActive === 2 && "active"}`}></span>
           </div>
           <div className="third-icon">
-            <div className="icon-wrapper" onClick={() =>{
-              setisActive(3)
-              navigate('/colorPallet')
-            }}>
+            <div
+              className="icon-wrapper"
+              onClick={() => {
+                setisActive(3);
+              }}
+            >
               <div className="white-backg"></div>
               <div className="svg">
                 <svg
@@ -173,10 +178,12 @@ function Landing1() {
             <span className={`selector ${isActive === 3 && "active"}`}></span>
           </div>
           <div className="fourth-icon">
-            <div className="icon-wrapper" onClick={() => {
-              setisActive(4)
-              navigate('/colorPalletFromLogo')
-            }}>
+            <div
+              className="icon-wrapper"
+              onClick={() => {
+                setisActive(4);
+              }}
+            >
               <div className="white-backg"></div>
               <div className="svg">
                 <svg

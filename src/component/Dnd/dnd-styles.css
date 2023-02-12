@@ -1,9 +1,4 @@
-.main-container{
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 .dnd-container{
     display: flex;
     flex-direction: column;
@@ -16,7 +11,6 @@
     align-items: center;
     background-color: #fdfdfd;
     justify-content: center;
-    width: 800px;
     height: 180px;
     font-size: 18px;
     border-radius: 15px;

@@ -17,7 +17,7 @@ const UiPattern = () => {
   return (
     
     <div className="w-full  px-[10%] py-[1%]">
-      <div className="flex flex-row w-full gap-x-24">
+      <div className="flex justify-between">
         <div className="basis-11/12  w-[77%] text-xl font-bold text-left">
           Recent UI patterns
         </div>

@@ -13,9 +13,9 @@ const ContactUs = () => {
         className="absolute h-1/2 w-full bg-warm-gray-50"
         aria-hidden="true"
       />
-     
+
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="relative bg-white shadow-xl">
+        <div className="relative bg-gradient-to-b from-[#0085F7] to-[#5fb0f7] shadow-xl">
           <h2 id="contact-heading" className="sr-only">
             Contact us
           </h2>
@@ -107,13 +107,8 @@ const ContactUs = () => {
 
             {/* Contact form */}
             <div className="py-10 px-6 sm:px-10 lg:col-span-2 xl:p-12">
-              <h3 className="text-lg font-medium ">
-                Send us a message
-              </h3>
-              <form
-              
-                className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8"
-              >
+              <h3 className="text-lg font-medium ">Send us a message</h3>
+              <form className="mt-6 grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
                 <div>
                   <label
                     htmlFor="first-name"
@@ -149,10 +144,7 @@ const ContactUs = () => {
                   </div>
                 </div>
                 <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-sm font-medium "
-                  >
+                  <label htmlFor="email" className="block text-sm font-medium ">
                     Email
                   </label>
                   <div className="mt-1">
@@ -234,10 +226,7 @@ const ContactUs = () => {
                   </div>
                 </div>
                 <div className="sm:col-span-2 sm:flex sm:justify-end">
-                  <button
-                    
-                    className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-[#0085F7] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#5fb0f7] focus:outline-none focus:ring-2 focus:ring-[#0085F7] focus:ring-offset-2 sm:w-auto"
-                  >
+                  <button className="mt-2 inline-flex w-full items-center justify-center rounded-md border border-transparent bg-[#0085F7] px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-[#5fb0f7] focus:outline-none focus:ring-2 focus:ring-[#0085F7] focus:ring-offset-2 sm:w-auto">
                     Submit
                   </button>
                 </div>
