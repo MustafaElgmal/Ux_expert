@@ -55,14 +55,6 @@ const router = createBrowserRouter([
     path: "/contactus",
     element:<ContactUs />,
   },
-  {
-    path: "/test",
-    element:<Uipatternsform/>
-  },
-  {
-    path: "/slider",
-    element:<Uipatternsformslider/>
-  }
 ]);
 
 function App() {
