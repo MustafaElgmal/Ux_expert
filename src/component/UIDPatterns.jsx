@@ -64,7 +64,7 @@ const UidPatterns=[
         },
         {
             title:"Formatting data",
-            content:["Frequently Asked Questions(FAQ)","Dashboard","Copy Box"], 
+            content:["(FAQ)","Dashboard","Copy Box"], 
         },
         {
             title:"Images",
@@ -78,13 +78,55 @@ const UidPatterns=[
       
     ]   
     },
+    {
+        title:"Onboarding",
+        subtitle:[{
+            title:"Guidance",
+            content:["Playthrough","Coachmarks","Inline Hints","Guided Tour","Walkthrough",
+            "Blank Slate"
+        ],
 
+        },
+        {
+            title:"Registration",
+            content:["Lazy Registration","Paywall","Account Registration"], 
+        },  
+    ]   
+    },
+    {
+        title:"Social",
+        subtitle:[{
+            title:"Reputation",
+            content:["Collectible Achievements","Testimonials","Leaderboard"
+        ],
+
+        },
+        {
+            title:"Social interactions",
+            content:["Activity Stream","Reaction","Friend","Chat","Follow","Invite friends"], 
+        },  
+    ]   
+    },
+    {
+        title:"Miscellaneous",
+        subtitle:[{
+            title:"Shopping",
+            content:["Product page","Coupon","Shopping Cart","Pricing table"
+        ],
+
+        },
+        {
+            title:"Increasing frequency",
+            content:["Tip A Friend"], 
+        },  
+    ]   
+    },
 ]
 const UIDPatterns = () => {
   return (
     <div className='my-[2%]'>
         <div className='text-3xl font-bold text-left my-[2%]'>User Interface Design Patterns</div>
-        <div className='grid lg:grid-cols-4 md:grid-cols-2 gap-5 grid-rows-1 '>
+        <div className='grid lg:grid-cols-4 md:grid-cols-2 gap-3 grid-row-1 '>
         {UidPatterns.map((ui)=>(
             <div className='border-2 shadow-lg  bg-white rounded-[10px] text-left h-fit'>
              <div className='bg-[#0085F7] text-[#FFFFFF] shadow-md pl-[5%] py-[4%]'>{ui.title}</div>
