@@ -5,7 +5,7 @@ import Footer from "../component/Footer";
 
 const ContactUs = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       <ContactUsCom />
       <Footer />

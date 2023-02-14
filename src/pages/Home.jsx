@@ -6,6 +6,7 @@ import UiPattern from "../component/UiPatterns";
 import Footer from "../component/Footer";
 import Dnd from "../component/Dnd/Dnd";
 
+
 const Home = () => {
   const [isActive, setisActive] = useState(1);
   return isActive === 1 ? (

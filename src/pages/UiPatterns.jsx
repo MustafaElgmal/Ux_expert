@@ -5,7 +5,7 @@ import UiPattern from "../component/UiPatterns";
 
 const UiPatterns = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       <UiPattern />
       <Footer />
