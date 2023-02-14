@@ -59,7 +59,7 @@ function Landing1({ isActive, setisActive }) {
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               onKeyDown={handleKeyDown}
-              className=" block search pl-[8%]"
+              className=" block search pl-[8%]  "
               placeholder="search for any domain to get tips to design it better"
             />
           </form>
