@@ -59,6 +59,7 @@ const ColorPallet = () => {
       >
         {pallets.map((pallet) => (
           <SwiperSlide className="w-[25%]  overflow-hidden   ">
+<<<<<<< HEAD
             <ColorPallets palletColors={pallet.colors} printRef={printRef} />
            <Interactives handleDownloadImage={handleDownloadImage}/>
           </SwiperSlide>
@@ -85,6 +86,58 @@ const ColorPallet = () => {
           <SwiperSlide className="w-[25%]  overflow-hidden   ">
             <ColorPallets palletColors={pallet.colors} printRef={printRef} />
            <Interactives handleDownloadImage={handleDownloadImage}/>
+=======
+              <ColorPallets palletColors={pallet.colors} printRef={printRef} />
+            <div className="interactives flex flex-row justify-end gap-[9px] mt-2  ">
+              <button
+                className={isLike ? "liked" : "like-button"}
+                onClick={onLikeButtonClick}
+              >
+                <style>{` 
+                          .like-button {
+                            background-image:url('${hearto}');
+                            background-repeat:no-repeat;
+                            width:100%;
+                            height:24px;
+                            margin-left:73%;
+                          }
+                                .liked {
+                                background-image:url('${heart}');
+                                background-repeat:no-repeat;
+                                width:100%; 
+                                height:24px;
+                              
+                                }
+                            
+                                  
+                                }
+                                
+                                `}</style>
+                
+              </button>
+              <span className="text-[#7D7C83] text-sm">{`${like}`}</span>
+              <button onClick={setToggle}>
+                <i class="fa fa-ellipsis-h text-[#000000] rounded-[50%] mr-2"></i>
+              </button>
+            </div>
+            {toggle && (
+              <div className="ml-[20%]  rounded-lg md:text-right md:-ml-12 md:text-xs">
+                <button
+                  className="download w-48  text-right mb-[2px]  "
+                  onClick={handleDownloadImage}
+                >
+                  {" "}
+                  Download Palette{" "}
+                  <i class="fa fa-download" aria-hidden="true"></i>
+                </button>
+                <button className="details w-48  text-right">
+                  {" "}
+                  Palette Details{" "}
+                  <i class="fa fa-info-circle" aria-hidden="true"></i>
+                </button>
+              </div>
+            )}
+>>>>>>> 2cfce7e8aee7fd94b1be68ff06f6111260d1cb5f
           </SwiperSlide>
         ))}
       </Swiper>
