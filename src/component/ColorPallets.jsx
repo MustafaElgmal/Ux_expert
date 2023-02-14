@@ -92,9 +92,9 @@ const ColorPallet = () => {
                                 background-repeat:no-repeat;
                                 width:100%; 
                                 height:24px;
-                               
+                              
                                 }
-                             
+                            
                                   
                                 }
                                 

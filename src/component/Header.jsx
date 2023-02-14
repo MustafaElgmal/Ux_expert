@@ -15,7 +15,7 @@ const Header = () => {
         </button>
         <div className=" flex cursor-pointer justify-center items-center w-[100%]  text-[#0085F7] font-normal bg-[#FFFFFF] rounded-lg border-[1px] border-[#0085F7] text-base text-center " onClick={()=>navigate('/login')}>
           <i
-            class="fa fa-user-circle-o mx-[3px] w-9 h-9 text-[24px] mt-3"
+            className="fa fa-user-circle-o mx-[3px] w-9 h-9 text-[24px] mt-3"
             aria-hidden="true"
           ></i>
           <span>Login</span>
