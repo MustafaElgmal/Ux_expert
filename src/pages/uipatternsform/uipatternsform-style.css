@@ -1,0 +1,63 @@
+
+.icons-container{
+    display: flex;
+    padding-inline: 100px;
+    align-items: center;
+    padding-top:20px ;
+    font-weight:500 ;
+}
+
+.home{
+    cursor: pointer;
+}
+.home:hover{
+    color: #0085F7;
+}
+.ui-patterns p{
+    cursor: pointer;
+}
+.ui-patterns p:hover{
+    color: #0085F7;
+}
+.icons-container div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 23px;
+}
+.main{
+    padding-left:8%;
+    padding-block: 50px;
+    background-color: #FAF8F8;
+    width: 95%;
+}
+.main-container{
+    box-shadow:3px 3px 10px 10px #00000029;
+    text-align: left;
+    background-color: #FFFFFF;
+    padding-inline: 40px;
+    padding-block: 30px;
+    border-radius: 10px;
+}
+.slider{
+    text-align: center;
+    width: 95%;
+    user-select: none;
+}
+.main-container h1{
+    font-size: 18px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type:disc;
+    padding-left: 2%;
+}
+
+ol{
+    padding-left: 3%;
+    font-weight: 600;
+}
+ol li{
+    color: #0085F7;
+}
