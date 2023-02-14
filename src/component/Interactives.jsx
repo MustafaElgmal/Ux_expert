@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 const Pallet = ({handleDownloadImage}) => {
+  const navigate=useNavigate()
   const [like, setLike] = useState(0),
     [isLike, setIsLike] = useState(false),
     onLikeButtonClick = () => {
@@ -18,8 +20,8 @@ const Pallet = ({handleDownloadImage}) => {
   const [toggle, setToggle] = useToggle();
   return (
     <div>
-    <div className="interactives flex  justify-end gap-2 mt-2  overflow-hidden">
-      <div onClick={() => onLikeButtonClick()}>
+    <div className="interactives flex  justify-end gap-2 mt-1  overflow-hidden">
+      <div onClick={() => onLikeButtonClick()} className="cursor-pointer">
         {isLike ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +67,7 @@ const Pallet = ({handleDownloadImage}) => {
             {" "}
             Download Palette <i class="fa fa-download" aria-hidden="true"></i>
           </button>
-          <button className="details w-48  text-right">
+          <button className="details w-48  text-right" onClick={()=>navigate('/colorPalletDetails')}>
             {" "}
             Palette Details <i class="fa fa-info-circle" aria-hidden="true"></i>
           </button>
