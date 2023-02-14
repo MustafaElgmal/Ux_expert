@@ -1,6 +1,6 @@
 import React ,{useState} from 'react'
 import heart from "../assets/heart.svg";
-import SimilarPallets from './SimilarPallets';
+
 import hearto from "../assets/heart-o.svg";
 /* it should take colors from the pervious page where pallet details button */
 const PalletDetails = (props) => {
@@ -54,8 +54,6 @@ const PalletDetails = (props) => {
                     
                     
                 </div>
-
-               <SimilarPallets/>
 
         </div> 
     )

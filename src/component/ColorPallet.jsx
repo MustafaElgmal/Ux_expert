@@ -8,7 +8,7 @@ export default function ColorPallet({ palletColors, printRef }) {
     );
   }, []);
   return (
-    <div className=" overflow-hidden rounded-[10px] w-full h-[80%]  flex flex-row  " ref={printRef}>
+    <div className=" overflow-hidden rounded-[10px] w-full  flex flex-row  " ref={printRef}>
         {palletColors.map((color,index) => (
             <button onClick={() => clickToClip(color, isCopieds, setIsCopieds)} className=" btn-color w-[20%] h-[142px]   transition-[0.5s] linear delay-200 "style={{ background: `${color}` }}>
               <div className="color-content text-[#FFFFFFE5]  text-center ">

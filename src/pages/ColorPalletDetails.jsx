@@ -5,7 +5,7 @@ import PalletDetails from "../component/PalletDetails";
 
 const ColorPalletDetails = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       <PalletDetails />
       <Footer />

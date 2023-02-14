@@ -5,7 +5,7 @@ import Footer from "../component/Footer";
 
 const ColorPalletFromLogo = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
       <Dnd />
       <Footer />

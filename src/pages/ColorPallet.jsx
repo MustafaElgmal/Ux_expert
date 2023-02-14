@@ -1,13 +1,13 @@
 import React from "react";
 import Footer from "../component/Footer";
 import Header from "../component/Header";
-import ColorPallets from "../component/ColorPallets";
+import  SeeAll from "../component/SeeAll";
 
 const ColorPallet = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <Header />
-      <ColorPallets />
+      <SeeAll />
       <Footer />
     </div>
   );
