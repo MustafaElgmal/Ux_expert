@@ -88,7 +88,7 @@ const ColorPallet = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
+      <UIDPatterns/>
     </div>
   );
 };
