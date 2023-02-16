@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Uipatternsformslider from "../../component/Uipatternsformslider/Uipatternsformslider";
 import "./uipatternsform-style.css";
 import Header from "../../component/Header";
@@ -9,6 +9,9 @@ import { BsChevronDoubleRight } from "react-icons/bs";
 
 
 const Uipatternsform = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [])
   return (
     <div>
       <Header />

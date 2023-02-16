@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Landing1 from "../component/landing page 1/Landing1";
 import Header from "../component/Header";
 import ColorPallet from "../component/ColorPallets";
@@ -9,6 +9,9 @@ import Dnd from "../component/Dnd/Dnd";
 
 const Home = () => {
   const [isActive, setisActive] = useState(1);
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   return isActive === 1 ? (
     <div className="min-h-screen">
       <Header />
