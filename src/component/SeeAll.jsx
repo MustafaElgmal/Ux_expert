@@ -48,7 +48,7 @@ const SeeAll = () => {
         </button>
       </div>
 
-      <div className=" pallet-cont flex flex-row w-full max-h-[350px] gap-[10px]  my-[5%] flex-wrap overflow-hidden">
+      <div className=" pallet-cont flex flex-row w-full  gap-[10px]  my-[5%] flex-wrap overflow-hidden">
         {pallets.map((pallet) => (
           <div className="w-[24%] ">
             <ColorPallet palletColors={pallet.colors} printRef={printRef} />
@@ -99,10 +99,10 @@ const SeeAll = () => {
         ))}
       </div>
       <button
-        onClick={(e) => {
-          document.querySelector(".pallet-cont").style.overflow = "visible";
-          document.querySelector(".pallet-cont").style.maxHeight = "100%";
-        }}
+        // onClick={(e) => {
+        //   document.querySelector(".pallet-cont").style.overflow = "visible";
+        //   document.querySelector(".pallet-cont").style.maxHeight = "100%";
+        // }}
         className="text-center text-[24px] font-normal border-2 rounded-[10px] bg-[#FFFFFF]  px-20 py-3 shadow-md hover:bg-[#0085F7] hover:text-white mt-[100px]"
       >
         see more palettes
