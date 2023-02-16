@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 const Uipatternsformslider = () => {
 
   let arr=[pic,pic,pic]
-
+  let x="hello world"
   return (
     <div>
       <Swiper
