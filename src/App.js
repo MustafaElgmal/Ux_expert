@@ -6,13 +6,11 @@ import ColorPalletDetails from "./pages/ColorPalletDetails";
 import ColorPalletFromLogo from "./pages/ColorPalletFromLogo";
 import ColorPallet from "./pages/ColorPallet";
 import UiPatterns from "./pages/ui patterns/UiPatterns";
-import CreateDesign from './pages/CreateDesign'
-import Login from './pages/Login'
-import SignUp from './pages/SignUp'
+import CreateDesign from "./pages/CreateDesign";
+import Login from "./pages/Login";
+import SignUp from "./pages/SignUp";
 import ContactUs from "./pages/ContactUs";
 import Uipatternsform from "./pages/uipatternsform/Uipatternsform";
-import Uipatternsformslider from "./component/Uipatternsformslider/Uipatternsformslider";
-
 
 const router = createBrowserRouter([
   {
@@ -41,19 +39,23 @@ const router = createBrowserRouter([
   },
   {
     path: "/createdesign",
-    element:<CreateDesign />,
+    element: <CreateDesign />,
   },
   {
     path: "/login",
-    element:<Login/>,
+    element: <Login />,
   },
   {
     path: "/signup",
-    element:<SignUp />,
+    element: <SignUp />,
   },
   {
     path: "/contactus",
-    element:<ContactUs />,
+    element: <ContactUs />,
+  },
+  {
+    path: "/forms",
+    element: <Uipatternsform />,
   },
 ]);
 

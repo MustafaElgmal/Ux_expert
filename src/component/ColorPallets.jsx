@@ -7,7 +7,6 @@ import "swiper/css/navigation";
 import Interactives from "./Interactives"
 import ColorPallets from "./ColorPallet";
 import { useNavigate } from "react-router-dom";
-import UIDPatterns from "./UIDPatterns";
 const pallets = [
   {
     colors: ["#CDB4DB", "#FFC8DD", "#FFAFCC", "#BDE0FE", "#A2D2FF"],
@@ -88,7 +87,7 @@ const ColorPallet = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      <UIDPatterns/>
+      
     </div>
   );
 };
