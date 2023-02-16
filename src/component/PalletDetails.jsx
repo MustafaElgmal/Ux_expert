@@ -112,7 +112,7 @@ const PalletDetails = (props) => {
       </div>
       <div className="mt-10">
         <div className="flex justify-start">
-          <p className="sim">Similar palettes</p>
+          <p className=" font-bold text-[36px]">Similar palettes</p>
         </div>
 
         <div className=" pallet-cont flex flex-row w-full max-h-[350px] gap-[10px]  my-[5%] flex-wrap overflow-hidden">
