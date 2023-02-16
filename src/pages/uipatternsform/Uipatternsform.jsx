@@ -7,6 +7,7 @@ import {AiOutlineHome} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
 import {BsChevronDoubleRight} from 'react-icons/bs'
 const Uipatternsform = () => {
+    let x="hello world"
 return (
     <>
     <Header/>
