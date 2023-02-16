@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import ContactUs from "./pages/ContactUs";
 import Uipatternsform from "./pages/uipatternsform/Uipatternsform";
+import Profile from "./pages/Profile";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
   {
     path: "/forms",
     element: <Uipatternsform />,
+  },
+  {
+    path: "/profile",
+    element: <Profile />,
   },
 ]);
 
