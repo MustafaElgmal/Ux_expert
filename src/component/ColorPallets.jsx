@@ -87,7 +87,7 @@ const ColorPallet = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-      
+
     </div>
   );
 };
