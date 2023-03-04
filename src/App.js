@@ -12,6 +12,7 @@ import SignUp from "./pages/SignUp";
 import ContactUs from "./pages/ContactUs";
 import Uipatternsform from "./pages/uipatternsform/Uipatternsform";
 import Profile from "./pages/Profile";
+import Designernav from "./component/Designernav/Designernav";
 
 const router = createBrowserRouter([
   {
@@ -61,6 +62,10 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: <Profile />,
+  },
+  {
+    path: "/test",
+    element: <Designernav/>,
   },
 ]);
 

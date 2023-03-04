@@ -1,0 +1,21 @@
+.design-pattern-container:hover div{
+
+    border-color: #0085F7;
+}
+
+.design-pattern-container:hover p{
+
+    color: #0085F7;
+}
+
+.swiper-item{
+    border: solid #394C6026 2px;
+    padding: 0.5rem;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.swiper-item:hover{
+    border-color: #0085F7;
+    color: #0085F7;
+}
