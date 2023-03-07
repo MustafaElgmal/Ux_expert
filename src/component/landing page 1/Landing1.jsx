@@ -3,7 +3,6 @@ import "./landing1.css";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-
 function Landing1({ isActive, setisActive }) {
   const navigate = useNavigate();
   const formik = useFormik({
@@ -15,6 +14,7 @@ function Landing1({ isActive, setisActive }) {
     }),
     onSubmit: async (values) => {
       navigate("/search");
+
       formik.resetForm();
     },
   });
@@ -54,7 +54,7 @@ function Landing1({ isActive, setisActive }) {
             <input
               type="text"
               name="message"
-              id="message"
+              id="message" 
               value={formik.values.message}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
