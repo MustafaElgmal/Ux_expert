@@ -1,7 +1,7 @@
 .landing2{
-    background-image: url(/assets/pexels-karolina-grabowska-4021775.png);
-    background-size:cover;
-    background-repeat: no-repeat;
+    background-image: url(/assets/istockphoto-1406900415-1000x1000.jpg);
+    background-size:contain;
+    background-repeat: repeat;
     background-color: rgba(0, 0, 0, 0.7);
     background-blend-mode: multiply;
     height: 245px;
