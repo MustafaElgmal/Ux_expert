@@ -8,14 +8,14 @@ import {
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
+import Login from "../../assets/loginPage1.png";
 import loginpage from "../../pages/Login";
 import { dragItem } from "../../utils/draging";
 import { useNavigate } from "react-router-dom";
-import Designernav from "../Designernav/Designernav";
 import DesignerModeModal from "../DesignerModeModal/DesignerModeModal";
 import './designer-mode.css'
 const HeaderOfDesign = () => {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState();
   const navigate = useNavigate();
 
   // function to toggle the boolean value
@@ -26,7 +26,7 @@ const HeaderOfDesign = () => {
   return (
     <div>
       <div className="relative">
-        {show&&<DesignerModeModal setShow={setShow}/>}
+      {show && <DesignerModeModal setShow={setShow}/>}
         <header className="bg-[#0085F7] w-full flex flex-row justify-between px-[4%]  py-[1%]">
           <div className="text-[#FFFFFF] pt-[0.5%] flex flex-row gap-6 ">
             <button
@@ -84,10 +84,97 @@ const HeaderOfDesign = () => {
           </button>
         </header>
         <div className="flex flex-row">
-        <Designernav/>
-          <section className=" background-design w-full"></section>
+          <aside className="bg-[#252627] h-full w-[30%] px-[1%] py-[1%] relative">
+            <div className="bg-[#FFFFFF] h-[30%] py-[2%] flex flex-row rounded-sm ">
+              <svg
+                className="pl-[1%]"
+                xmlns="http://www.w3.org/2000/svg"
+                width="21"
+                height="21"
+                viewBox="0 0 22.2 21.88"
+              >
+                <path
+                  id="Vector"
+                  d="M14.985,16.4a9.217,9.217,0,1,1,1.7-1.782l5.161,5.161A1.23,1.23,0,0,1,20.1,21.517Zm-5.776.2A7.373,7.373,0,1,0,4,14.442,7.373,7.373,0,0,0,9.21,16.6Z"
+                  fill="#0d1216"
+                />
+              </svg>
+
+              <input
+                className=" ml-[1%] block w-full outline-none px-2"
+                type="text"
+                placeholder="Search for Patterns"
+              />
+            </div>
+            <div className="my-[8%] text-[#FFFFFFB2]">
+              <Swiper
+                slidesPerView={3}
+                spaceBetween={3}
+                navigation={true}
+                Navigation={{
+                  clickable: true,
+                }}
+                modules={[Navigation]}
+              >
+                <SwiperSlide>
+                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
+                    {" "}
+                    login Screen
+                  </button>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
+                    {" "}
+                    login Screen
+                  </button>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
+                    {" "}
+                    login Screen
+                  </button>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
+                    {" "}
+                    login Screen
+                  </button>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
+                    {" "}
+                    login Screen
+                  </button>
+                </SwiperSlide>
+              </Swiper>
+            </div>
+            <div className="my-[3%] box">
+              <div className="text-[#FFFFFFE5] font-semibold text-left">
+                Recently used
+              </div>
+
+              <div
+                className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
+                id="item"
+                draggable={true}
+              >
+                         <img src={Login} />
+                <div className="mt-[1%]">Login Pattern #1</div>
+              </div>
+              <div
+                className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
+                id="item"
+                draggable={true}
+              >
+                         <img src={Login} />
+                <div className="mt-[1%]">Login Pattern #2</div>
+              </div>
+            </div>
+          </aside>
+          <section className="background-design w-full"></section>
         </div>
-        
+
+
       </div>
     </div>
   );
