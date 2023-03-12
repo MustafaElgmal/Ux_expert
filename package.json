@@ -21,6 +21,7 @@
     "html-to-vue": "^1.4.0",
     "html2canvas": "^1.4.1",
     "naive-bayes-classifier": "^0.5.0",
+    "natural": "^6.2.0",
     "react": "^18.2.0",
     "react-animated-heart": "^0.0.7",
     "react-dom": "^18.2.0",

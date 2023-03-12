@@ -3,26 +3,29 @@ import "./landing1.css";
 import * as Yup from "yup";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
+import { getWordClassify } from "../../utils/apis";
+import { useState } from "react";
 function Landing1({ isActive, setisActive }) {
+  const [type,setType]=useState("")
   const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
-      message: "",
+      sentence: "",
     },
     validationSchema: Yup.object({
-      message: Yup.string().required(),
+      sentence: Yup.string().required(),
     }),
     onSubmit: async (values) => {
-      navigate("/search");
-
+      await getWordClassify(values,navigate)
       formik.resetForm();
     },
   });
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = async(event) => {
     if (event.key === "Enter") {
-      if (formik.values.message !== "") {
-        navigate("/search");
+      if (formik.values.sentence !== "") {
+        event.preventDefault()
+        await getWordClassify({sentence:formik.values.sentence},navigate)
         formik.resetForm();
       }
     }
@@ -53,9 +56,9 @@ function Landing1({ isActive, setisActive }) {
           <form>
             <input
               type="text"
-              name="message"
-              id="message" 
-              value={formik.values.message}
+              name="sentence"
+              id="sentence" 
+              value={formik.values.sentence}
               onBlur={formik.handleBlur}
               onChange={formik.handleChange}
               onKeyDown={handleKeyDown}

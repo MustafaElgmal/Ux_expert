@@ -145,3 +145,11 @@ export async function saveToFileVue() {
     writable.close();
 } 
 
+export const filterComponents=(components,name,setFilterSearch)=>{
+  
+  const componentsFilter=components.filter((component)=>component.name.toLowerCase().includes(name.toLowerCase()))
+  setFilterSearch(componentsFilter)
+  
+
+}
+

@@ -1,32 +1,39 @@
 import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import {
-  saveToFileHtml,
-  saveToFileVue,
-  saveToFileReact,
-} from "../../utils/functions";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import Login from "../../assets/loginPage1.png";
-import loginpage from "../../pages/Login";
-import { dragItem } from "../../utils/draging";
 import { useNavigate } from "react-router-dom";
 import DesignerModeModal from "../DesignerModeModal/DesignerModeModal";
-import './designer-mode.css'
-const HeaderOfDesign = () => {
+import "./designer-mode.css";
+import { useEffect } from "react";
+import { getComponentsByCategoryId } from "../../utils/apis";
+import { filterComponents } from "../../utils/functions";
+const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
+  const [cateId, setCateId] = useState();
+  const [componentsFilter, setComponentsFilter] = useState([]);
+  const [FilterSearch, setFilterSearch] = useState([]);
   const [show, setShow] = useState();
   const navigate = useNavigate();
-
   // function to toggle the boolean value
   function toggleShow() {
     setShow(!show);
   }
 
+  const getAllComponetsByCategoryId = async (cateId) => {
+    await getComponentsByCategoryId(cateId, setComponentsFilter,setFilterSearch);
+  };
+  useEffect(() => {
+    getAllComponetsByCategoryId(cateId);
+  }, [cateId]);
+
+
+
   return (
     <div>
       <div className="relative">
-      {show && <DesignerModeModal setShow={setShow}/>}
+        {show && <DesignerModeModal setShow={setShow} />}
         <header className="bg-[#0085F7] w-full flex flex-row justify-between px-[4%]  py-[1%]">
           <div className="text-[#FFFFFF] pt-[0.5%] flex flex-row gap-6 ">
             <button
@@ -84,8 +91,8 @@ const HeaderOfDesign = () => {
           </button>
         </header>
         <div className="flex flex-row">
-          <aside className="bg-[#252627] h-full w-[30%] px-[1%] py-[1%] relative">
-            <div className="bg-[#FFFFFF] h-[30%] py-[2%] flex flex-row rounded-sm ">
+          <aside className="bg-[#252627] min-h-screen w-[30%] px-[1%] py-[1%] relative">
+            <div className="bg-[#FFFFFF]  py-[2%] flex flex-row rounded-sm ">
               <svg
                 className="pl-[1%]"
                 xmlns="http://www.w3.org/2000/svg"
@@ -99,11 +106,12 @@ const HeaderOfDesign = () => {
                   fill="#0d1216"
                 />
               </svg>
-
               <input
                 className=" ml-[1%] block w-full outline-none px-2"
                 type="text"
-                placeholder="Search for Patterns"
+                name="name"
+                onChange={(e)=>filterComponents(componentsFilter,e.target.value,setFilterSearch)}
+                placeholder="Search for components"
               />
             </div>
             <div className="my-[8%] text-[#FFFFFFB2]">
@@ -116,65 +124,55 @@ const HeaderOfDesign = () => {
                 }}
                 modules={[Navigation]}
               >
-                <SwiperSlide>
-                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
-                    {" "}
-                    login Screen
-                  </button>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
-                    {" "}
-                    login Screen
-                  </button>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
-                    {" "}
-                    login Screen
-                  </button>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
-                    {" "}
-                    login Screen
-                  </button>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <button className=" px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[14px] text-center hover:opacity-100">
-                    {" "}
-                    login Screen
-                  </button>
-                </SwiperSlide>
+                {categories.map((category) => (
+                  <SwiperSlide key={category.id}>
+                    <button
+                      className=" min-w-[20px] px-[5%] py-[5%] border-[1px] border-[#FFFFFFB2] opacity-70 text-[20px] text-center hover:opacity-100"
+                      onClick={() => setCateId(category.id)}
+                    >
+                      {category.name}
+                    </button>
+                  </SwiperSlide>
+                ))}
               </Swiper>
             </div>
-            <div className="my-[3%] box">
-              <div className="text-[#FFFFFFE5] font-semibold text-left">
-                Recently used
-              </div>
+            {!cateId ? (
+              <div className="my-[3%] box">
+                <div className="text-[#FFFFFFE5] font-semibold text-left">
+                  Recently used
+                </div>
+                {trendingComponents.map((component) => (
+                  <div
+                    key={component.id}
+                    className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
+                    id="item"
+                    draggable={true}
+                  >
+                    <img src={`${component.imgUrl}`} />
+                    <div className="mt-[1%]">{component.name}</div>
+                  </div>
+                ))}
 
-              <div
-                className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
-                id="item"
-                draggable={true}
-              >
-                         <img src={Login} />
-                <div className="mt-[1%]">Login Pattern #1</div>
+                
               </div>
-              <div
-                className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
-                id="item"
-                draggable={true}
-              >
-                         <img src={Login} />
-                <div className="mt-[1%]">Login Pattern #2</div>
+            ) : (
+              <div className="my-[3%] box">
+                {FilterSearch.map((component) => (
+                  <div
+                    key={component.id}
+                    className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
+                    id="item"
+                    draggable={true}
+                  >
+                    <img src={`${component.imgUrl}`} />
+                    <div className="mt-[1%]">{component.name}</div>
+                  </div>
+                ))}
               </div>
-            </div>
+            )}
           </aside>
           <section className="background-design w-full"></section>
         </div>
-
-
       </div>
     </div>
   );
