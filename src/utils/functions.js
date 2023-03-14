@@ -26,7 +26,8 @@ export async function saveToFileHtml(pageCodeHtml) {
     ],
   });
   const writable = await handle.createWritable();
-  await writable.write(pageCodeHtml);
+  await writable.write(`<div>
+  <!-- Please make sure to setup taliwnd on your project -->${pageCodeHtml}</div>`);
   writable.close();
 }
 export async function saveToFileReact(pageCodeReact) {
@@ -43,6 +44,7 @@ export async function saveToFileReact(pageCodeReact) {
   const writable = await handle.createWritable();
   await writable.write(`export default function Example() {
     return (
+        //Please make sure to setup taliwnd on your project
         ${pageCodeReact}
      
     )
@@ -62,6 +64,7 @@ export async function saveToFileVue(pageCodeVue) {
   });
   const writable = await handle.createWritable();
   await writable.write(`<template>
+  <!-- Please make sure to setup taliwnd on your project -->
   ${pageCodeVue}
  
 </template>`);

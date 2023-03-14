@@ -215,24 +215,26 @@ const HeaderOfDesign = ({ categories, components, trendingComponents }) => {
               <div className="my-[3%] box">
                 {FilterSearch.map((component) => (
                   <div
+                  className="p-[5%]"
+                  id="drag-me"
+                  draggable="true"
+                  onDragStart={handleDragStart}
+                  onDragEnd={(e)=>handleDragEnd(e,component.codes)}
+                  style={{
+                    opacity: isDragging ? 0.5 : 1,
+                    cursor: "move",
+                  }}
+                >
+                    <div
                     key={component.id}
                     className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
                   >
-                    <div
-                      className="p-[5%]"
-                      id="drag-me"
-                      draggable="true"
-                      onDragStart={handleDragStart}
-                      onDragEnd={handleDragEnd}
-                      style={{
-                        opacity: isDragging ? 0.5 : 1,
-                        cursor: "move",
-                      }}
-                    >
-                      <img src={`${component.imgUrl}`} />
-                    </div>
+                     <img src={`${component.imgUrl}`} />
                     <div className="mt-[1%]">{component.name}</div>
                   </div>
+                 
+                </div>
+                
                 ))}
               </div>
             )}
@@ -243,7 +245,9 @@ const HeaderOfDesign = ({ categories, components, trendingComponents }) => {
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
-          ></div>
+          >
+           
+          </div>
         </div>
       </div>
     </div>
