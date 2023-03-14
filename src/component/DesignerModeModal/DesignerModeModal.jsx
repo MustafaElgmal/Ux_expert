@@ -1,8 +1,9 @@
 import React from 'react'
 import {AiOutlineDownload,AiOutlineArrowLeft} from 'react-icons/ai'
 import { Link } from 'react-router-dom'
+import { saveToFileHtml, saveToFileReact, saveToFileVue } from '../../utils/functions'
 
-const DesignerModeModal = ({setShow}) => {
+const DesignerModeModal = ({setShow,pageCodes}) => {
   return (
     <div className='relative w-full h-full'>
         <div className=' fixed z-[99] w-full h-full bg-gray-500 opacity-[0.5]'onClick={()=>setShow(false)}>
@@ -32,9 +33,9 @@ const DesignerModeModal = ({setShow}) => {
                             <h2 className='text-2xl font-semibold text-[#0085F7]'>Great! Your Design is Created Successfully</h2>
                         </div>
                         <div className='flex justify-between container px-[10%] xs:p-[5%]'>
-                            <button className='text-white bg-[#004AF7] rounded-sm gap-2 items-center flex xl:px-4 lg:px-4 md:px-4 sm:px-1 xs:px-1 py-[2px] hover:opacity-[0.8] active:opacity-[0.5] transition-all'><AiOutlineDownload className='font-bold text-lg'/> Html</button>
-                            <button className='text-white bg-[#004AF7] rounded-sm gap-2 items-center flex xl:px-4 lg:px-4 md:px-4 sm:px-1 xs:px-1 py-[2px] hover:opacity-[0.8] active:opacity-[0.5] transition-all'><AiOutlineDownload className='font-bold text-lg'/>React</button>
-                            <button className='text-white bg-[#004AF7] rounded-sm gap-2 items-center flex xl:px-4 lg:px-4 md:px-4 sm:px-1 xs:px-1 py-[2px] hover:opacity-[0.8] active:opacity-[0.5] transition-all'><AiOutlineDownload className='font-bold text-lg'/>Vue</button>
+                            <button className='text-white bg-[#004AF7] rounded-sm gap-2 items-center flex xl:px-4 lg:px-4 md:px-4 sm:px-1 xs:px-1 py-[2px] hover:opacity-[0.8] active:opacity-[0.5] transition-all' onClick={()=>saveToFileHtml(pageCodes[0])}><AiOutlineDownload className='font-bold text-lg'/> Html</button>
+                            <button className='text-white bg-[#004AF7] rounded-sm gap-2 items-center flex xl:px-4 lg:px-4 md:px-4 sm:px-1 xs:px-1 py-[2px] hover:opacity-[0.8] active:opacity-[0.5] transition-all' onClick={()=>saveToFileReact(pageCodes[1])}><AiOutlineDownload className='font-bold text-lg'/>React</button>
+                            <button className='text-white bg-[#004AF7] rounded-sm gap-2 items-center flex xl:px-4 lg:px-4 md:px-4 sm:px-1 xs:px-1 py-[2px] hover:opacity-[0.8] active:opacity-[0.5] transition-all' onClick={()=>saveToFileVue(pageCodes[2])}><AiOutlineDownload className='font-bold text-lg'/>Vue</button>
                         </div>
                         <Link to="/" className='flex justify-center items-center gap-4 hover:text-[#006AF7] transition-all select-none cursor-pointer'> <AiOutlineArrowLeft/> back to home page</Link>
                     </div>

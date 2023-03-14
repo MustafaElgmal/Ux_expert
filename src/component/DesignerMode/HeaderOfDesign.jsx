@@ -3,76 +3,78 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import { saveToFileHtml,saveToFileVue,saveToFileReact } from "../../utils/functions";
+import {
+  saveToFileHtml,
+  saveToFileVue,
+  saveToFileReact,
+  MakePage,
+} from "../../utils/functions";
 import { useNavigate } from "react-router-dom";
 import DesignerModeModal from "../DesignerModeModal/DesignerModeModal";
 import "./designer-mode.css";
 import { useEffect } from "react";
 import { getComponentsByCategoryId } from "../../utils/apis";
 import { filterComponents } from "../../utils/functions";
-const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
+const HeaderOfDesign = ({ categories, components, trendingComponents }) => {
   const [cateId, setCateId] = useState();
   const [componentsFilter, setComponentsFilter] = useState([]);
   const [FilterSearch, setFilterSearch] = useState([]);
   const [show, setShow] = useState();
+  const [pageCodes,setPageCodes]=useState([])
   const navigate = useNavigate();
   const [isDragging, setIsDragging] = useState(false);
   const handleDragStart = (e) => {
     setIsDragging(true);
-    e.dataTransfer.setData('text/plain', e.target.id);
+    e.dataTransfer.setData("text/plain", e.target.id);
   };
 
-  const handleDragEnd = () => {
+  const handleDragEnd = (e,codes) => {
+    MakePage(pageCodes,setPageCodes,codes)
     setIsDragging(false);
   };
 
   const handleDrop = (e) => {
     e.preventDefault();
-    const data = e.dataTransfer.getData('text/plain');
+    const data = e.dataTransfer.getData("text/plain");
     const draggedElement = document.getElementById(data);
-    draggedElement.style.display = 'block';
+    draggedElement.style.display = "block";
     e.target.appendChild(draggedElement);
-    
+   
   };
 
   const handleDragOver = (e) => {
     e.preventDefault();
-    e.target.style.border = '1px solid blue';
+    e.target.style.border = "1px solid blue";
     setIsDragging(true);
+    
   };
 
   const handleDragLeave = (e) => {
-    e.target.style.border = 'none';
-  }; 
-
-
-
-
-
-
-
-
-
+    e.target.style.border = "none";
+    
+    
+  };
 
   // function to toggle the boolean value
   function toggleShow() {
     setShow(!show);
   }
 
-
   const getAllComponetsByCategoryId = async (cateId) => {
-    await getComponentsByCategoryId(cateId, setComponentsFilter,setFilterSearch);
+    await getComponentsByCategoryId(
+      cateId,
+      setComponentsFilter,
+      setFilterSearch
+    );
   };
   useEffect(() => {
     getAllComponetsByCategoryId(cateId);
   }, [cateId]);
 
-
-
   return (
     <div>
       <div className="relative">
-        {show && <DesignerModeModal setShow={setShow} />}
+        {show && <DesignerModeModal setShow={setShow} pageCodes={pageCodes} />}
         <header className="bg-[#0085F7] w-full flex flex-row justify-between px-[4%]  py-[1%]">
           <div className="text-[#FFFFFF] pt-[0.5%] flex flex-row gap-6 ">
             <button
@@ -149,7 +151,13 @@ const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
                 className=" ml-[1%] block w-full outline-none px-2"
                 type="text"
                 name="name"
-                onChange={(e)=>filterComponents(componentsFilter,e.target.value,setFilterSearch)}
+                onChange={(e) =>
+                  filterComponents(
+                    componentsFilter,
+                    e.target.value,
+                    setFilterSearch
+                  )
+                }
                 placeholder="Search for components"
               />
             </div>
@@ -182,29 +190,26 @@ const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
                 </div>
                 {trendingComponents.map((component) => (
                   <div
-                    key={component.id}
-                    className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
-                  >
-                    <div 
                     className="p-[5%]"
-        id="drag-me"
-        draggable="true"
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
-        style={{
-          opacity: isDragging ? 0.5 : 1,
-          cursor: 'move',
-        }}
-      >
-         <img src={`${component.imgUrl}`} />
-      </div>
-                   
+                    id="drag-me"
+                    draggable="true"
+                    onDragStart={handleDragStart}
+                    onDragEnd={(e)=>handleDragEnd(e,component.codes)}
+                    style={{
+                      opacity: isDragging ? 0.5 : 1,
+                      cursor: "move",
+                    }}
+                  >
+                    <div
+                      key={component.id}
+                      className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
+                    >
+                      <img src={`${component.imgUrl}`} />
 
-                    <div className="mt-[1%]">{component.name}</div>
+                      <div className="mt-[1%]">{component.name}</div>
+                    </div>
                   </div>
                 ))}
-
-                
               </div>
             ) : (
               <div className="my-[3%] box">
@@ -212,36 +217,33 @@ const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
                   <div
                     key={component.id}
                     className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
-                    
                   >
-                  <div 
-                    className="p-[5%]"
-        id="drag-me"
-        draggable="true"
-        onDragStart={handleDragStart}
-        onDragEnd={handleDragEnd}
-        style={{
-          opacity: isDragging ? 0.5 : 1,
-          cursor: 'move',
-        }}
-      >
-         <img src={`${component.imgUrl}`} />
-      </div>
+                    <div
+                      className="p-[5%]"
+                      id="drag-me"
+                      draggable="true"
+                      onDragStart={handleDragStart}
+                      onDragEnd={handleDragEnd}
+                      style={{
+                        opacity: isDragging ? 0.5 : 1,
+                        cursor: "move",
+                      }}
+                    >
+                      <img src={`${component.imgUrl}`} />
+                    </div>
                     <div className="mt-[1%]">{component.name}</div>
                   </div>
                 ))}
               </div>
             )}
           </aside>
-          
-          <div className="bg-white w-full px-[5%]"
+
+          <div
+            className="bg-white w-full px-[5%]"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
-           
-          >
-            
-          </div>
+          ></div>
         </div>
       </div>
     </div>
