@@ -13,7 +13,6 @@ const SearchResults = () => {
   const [type, setType] = useState(useParams().type);
   useEffect(() => {
     window.scrollTo(0, 0);
-    console.log(type);
   }, []);
   return type === "NotFound" ? (
     <NotFound />
@@ -22,13 +21,13 @@ const SearchResults = () => {
       <Header />
       <Landing2 />
       {type === "medical" ? (
-        <SearchContent />
+        <SearchContent  />
       ) : type === "food" ? (
-        <FoodContent />
+        <FoodContent  />
       ) : (
-        <Elearning />
+        <Elearning  />
       )}
-      <ColorSwiper />
+      <ColorSwiper type={type} />
       <Footer />
     </div>
   );
