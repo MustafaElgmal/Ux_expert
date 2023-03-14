@@ -4,7 +4,9 @@ import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
-const DivColor = ({ slidesPerView,type }) => {
+const DivColor = ({ slidesPerView, type }) => {
+  console.log(type)
+  
   return (
     <Swiper
       slidesPerView={slidesPerView}
@@ -15,18 +17,22 @@ const DivColor = ({ slidesPerView,type }) => {
       }}
       modules={[Navigation]}
     >
-      {type==='medical'? <SwiperSlide>
-        <div className="divColor bg-[#0000FF]"></div>
-        <span>Blue: #0000FF</span>
-      </SwiperSlide>:type==='food'? <SwiperSlide>
-        <div className="divColor bg-[#FF0000]"></div>
-        <span>Red: #FF0000
-        </span>
-      </SwiperSlide>: <SwiperSlide>
-        <div className="divColor bg-[#89cff0]"></div>
-        <span>Baby Blue: #89cff0
-        </span>
-      </SwiperSlide>}
+      {type === "medical" ? (
+        <SwiperSlide>
+          <div className="divColor bg-[#0000FF]"></div>
+          <span>Blue: #0000FF</span>
+        </SwiperSlide>
+      ) : type === "food" ? (
+        <SwiperSlide>
+          <div className="divColor bg-[#FF0000]"></div>
+          <span>Red: #FF0000</span>
+        </SwiperSlide>
+      ) : (
+        <SwiperSlide>
+          <div className="divColor bg-[#89cff0]"></div>
+          <span>Baby Blue: #89cff0</span>
+        </SwiperSlide>
+      )}
       <SwiperSlide>
         <div className="divColor bg-[#FFA500]"></div>
         <span>Orange: #FFA500</span>
