@@ -1,4 +1,6 @@
-import React from 'react';
+import React   from 'react';
+
+
 const SearchContent = () => {
     return ( 
         <div className=" flex flex-col text-left w-full">

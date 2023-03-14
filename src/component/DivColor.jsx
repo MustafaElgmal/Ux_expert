@@ -20,14 +20,6 @@ const DivColor = ({ slidesPerView }) => {
         <span>Red: #FF0000</span>
       </SwiperSlide>
       <SwiperSlide>
-        <div className="divColor bg-[#FF0000]"></div>
-        <span>Red: #FF0000</span>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="divColor bg-[#FF0000]"></div>
-        <span>Red: #FF0000</span>
-      </SwiperSlide>
-      <SwiperSlide>
         <div className="divColor bg-[#FFA500]"></div>
         <span>Orange: #FFA500</span>
       </SwiperSlide>
