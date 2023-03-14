@@ -38,7 +38,7 @@ const Elearning = () => {
         <span className='highlighted-sentense'>10.Blue and green:</span>  These colors are often associated with learning and growth and can create a calming and relaxing atmosphere.
     </div>
     <div className='five'>
-        <span className='highlighted-sentense'>11.Neutral colors:  </span>  Neutral colors such as gray and beige can be used as a background color to create a clean and professional look.
+        <span className='highlighted-sentense'>11.Neutral colors:  </span>  Neutral colors such as baby blue and green can be used as a background color to create a clean and professional look.
         </div>
     <div className='five'>
         <span className='highlighted-sentense'>12.Bright and bold colors: </span>  These colors can be used to draw attention to important information or to create a sense of excitement and energy.
