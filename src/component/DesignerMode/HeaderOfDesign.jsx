@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import Login from "../../assets/loginPage1.png";
+import { saveToFileHtml,saveToFileVue,saveToFileReact } from "../../utils/functions";
 import { useNavigate } from "react-router-dom";
 import DesignerModeModal from "../DesignerModeModal/DesignerModeModal";
 import "./designer-mode.css";
@@ -16,10 +16,49 @@ const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
   const [FilterSearch, setFilterSearch] = useState([]);
   const [show, setShow] = useState();
   const navigate = useNavigate();
+  const [isDragging, setIsDragging] = useState(false);
+  const handleDragStart = (e) => {
+    setIsDragging(true);
+    e.dataTransfer.setData('text/plain', e.target.id);
+  };
+
+  const handleDragEnd = () => {
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e) => {
+    e.preventDefault();
+    const data = e.dataTransfer.getData('text/plain');
+    const draggedElement = document.getElementById(data);
+    draggedElement.style.display = 'block';
+    e.target.appendChild(draggedElement);
+    
+  };
+
+  const handleDragOver = (e) => {
+    e.preventDefault();
+    e.target.style.border = '1px solid blue';
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e) => {
+    e.target.style.border = 'none';
+  }; 
+
+
+
+
+
+
+
+
+
+
   // function to toggle the boolean value
   function toggleShow() {
     setShow(!show);
   }
+
 
   const getAllComponetsByCategoryId = async (cateId) => {
     await getComponentsByCategoryId(cateId, setComponentsFilter,setFilterSearch);
@@ -145,10 +184,22 @@ const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
                   <div
                     key={component.id}
                     className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
-                    id="item"
-                    draggable={true}
                   >
-                    <img src={`${component.imgUrl}`} />
+                    <div 
+                    className="p-[5%]"
+        id="drag-me"
+        draggable="true"
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        style={{
+          opacity: isDragging ? 0.5 : 1,
+          cursor: 'move',
+        }}
+      >
+         <img src={`${component.imgUrl}`} />
+      </div>
+                   
+
                     <div className="mt-[1%]">{component.name}</div>
                   </div>
                 ))}
@@ -161,17 +212,36 @@ const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
                   <div
                     key={component.id}
                     className=" px-[1%] text-left text-[#FFFFFFB2] my-[2%]"
-                    id="item"
-                    draggable={true}
+                    
                   >
-                    <img src={`${component.imgUrl}`} />
+                  <div 
+                    className="p-[5%]"
+        id="drag-me"
+        draggable="true"
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+        style={{
+          opacity: isDragging ? 0.5 : 1,
+          cursor: 'move',
+        }}
+      >
+         <img src={`${component.imgUrl}`} />
+      </div>
                     <div className="mt-[1%]">{component.name}</div>
                   </div>
                 ))}
               </div>
             )}
           </aside>
-          <section className="background-design w-full"></section>
+          
+          <div className="background-design w-full px-[5%]"
+            onDrop={handleDrop}
+            onDragOver={handleDragOver}
+            onDragLeave={handleDragLeave}
+           
+          >
+            
+          </div>
         </div>
       </div>
     </div>
