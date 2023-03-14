@@ -1,4 +1,8 @@
 import React from 'react'
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const FoodContent = () => {
   return (
@@ -36,7 +40,7 @@ const FoodContent = () => {
         <span className='highlighted-sentense'>9. User Reviews:</span>   Including user reviews and ratings can help users make informed decisions about what to order.
     </div>
     <div className='five'>
-        <span className='highlighted-sentense'>10.Earthy Tones:</span>   Earthy tones such as brown, green, and beige can be a great choice for a food-related design as they evoke a sense of naturalness and wholesomeness.
+        <span className='highlighted-sentense'>10.Earthy Tones:</span>   food tones such as red, orange and yellow can be a great choice for a food-related design as they evoke a sense of naturalness and wholesomeness.
     </div>
     <div className='five'>
         <span className='highlighted-sentense'>11.Bold and Bright: </span>  Bright colors such as red, orange, and yellow can be a great choice for designs that aim to grab the user's attention and create a sense of excitement
@@ -44,6 +48,7 @@ const FoodContent = () => {
     <div className='five'>
         <span className='highlighted-sentense'>12. Pastel Shades: </span>  Soft pastel shades such as pink, blue, and lavender can create a soothing and relaxing atmosphere, which can be a good choice for a food-related design.
     </div>
+    
 </div>
   )
 }

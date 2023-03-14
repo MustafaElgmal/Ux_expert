@@ -4,6 +4,7 @@ import React   from 'react';
 const SearchContent = () => {
     return ( 
         <div className=" flex flex-col text-left w-full">
+
             <div className=' font-bold  text-[25px] text-left w-[60%] px-[10%] pt-[3%] pb-[1.5%] text-[#0D1216]'>
                 <h2>You searched for "Medicine" Domain..</h2>
             </div>
@@ -23,7 +24,7 @@ const SearchContent = () => {
                 <span className='highlighted-sentense'>4. Use visuals to convey information:</span> Visuals can be used to convey information quickly and effectively, such as diagrams or charts that illustrate complex concepts in an easy-to-understand way.
             </div>
             <div className='five'>
-                <span className='highlighted-sentense'>5. When choosing a color palette</span> for the Medicine domain, it is important to choose colors that are calming and professional looking while still being visually appealing. Consider using shades of <span className='color-details'>blue, green, gray, and white</span> as these colors are often associated with health care and medicine. Additionally, consider adding in some accent colors such as<span className='color-details'> yellow or orange</span> to add some visual interest while still keeping within the overall theme of medicine and health care.
+                <span className='highlighted-sentense'>5. When choosing a color palette</span> for the Medicine domain, it is important to choose colors that are calming and professional looking while still being visually appealing. Consider using shades of <span >blue, green, gray, and white</span> as these colors are often associated with health care and medicine. Additionally, consider adding in some accent colors such as<span className='color-details'> yellow or orange</span> to add some visual interest while still keeping within the overall theme of medicine and health care.
             </div>
         </div>
     )

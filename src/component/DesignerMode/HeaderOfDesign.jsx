@@ -234,7 +234,7 @@ const HeaderOfDesign = ({ categories, components,trendingComponents }) => {
             )}
           </aside>
           
-          <div className="background-design w-full px-[5%]"
+          <div className="bg-white w-full px-[5%]"
             onDrop={handleDrop}
             onDragOver={handleDragOver}
             onDragLeave={handleDragLeave}
