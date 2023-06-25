@@ -1,1 +1,1 @@
-export const Base_url="https://uxexpert-backend-production.up.railway.app"
+export const Base_url="https://uxexpert-backend-production-9949.up.railway.app"

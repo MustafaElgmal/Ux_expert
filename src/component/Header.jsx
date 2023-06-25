@@ -5,7 +5,7 @@ import UxPertLogo from "../assets/uxpertlogo.svg";
 const Header = () => {
   const navigate=useNavigate()
   return (
-    <div className="h-[20%]  flex justify-between items-center w-full px-[10%] py-[1%] bg-[#FFFFFF]">
+    <div className="h-[20%]  flex justify-between items-center w-full px-[10%]  bg-[#FFFFFF]">
       <div className=" md:basis-2/12 md:mr-[20%] md:mb-[3%] md:mt-[2%] lg:basis-3/12 lg:mr-[45%] cursor-pointer" onClick={()=>navigate('/')} >
         <img src={UxPertLogo} className="w-[100%]" />
       </div>
