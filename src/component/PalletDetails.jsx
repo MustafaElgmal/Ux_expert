@@ -3,12 +3,8 @@ import { useNavigate } from "react-router-dom";
 import Interactives from "./Interactives";
 import ColorPallet from "./ColorPallet";
 import html2canvas from "html2canvas";
-const pallets = [
-  {
-    colors: ["#CDB4DB", "#FFC8DD", "#FFAFCC", "#BDE0FE", "#A2D2FF"],
-  },
-];
-const PalletDetails = (props) => {
+import { pallets } from "../constant";
+const PalletDetails = ({ pallet }) => {
   const navigate = useNavigate();
   const [like, setLike] = useState(0),
     [isLike, setIsLike] = useState(false),
@@ -16,25 +12,24 @@ const PalletDetails = (props) => {
       setLike(like + (isLike ? -1 : 1));
       setIsLike(!isLike);
     };
-  const printRef = React.useRef();
-  const handleDownloadImage = async () => {
-    const element = printRef.current;
-    const canvas = await html2canvas(element);
-
-    const data = canvas.toDataURL("image/jpg");
-    const link = document.createElement("a");
-
-    if (typeof link.download === "string") {
-      link.href = data;
-      link.download = "image.jpg";
-
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      window.open(data);
-    }
-  };
+    const refs = React.useRef([]);
+    const handleDownloadImage = async (id) => {
+      const element = refs.current[id-1];
+      const canvas = await html2canvas(element)
+      const data = canvas.toDataURL("image/jpg");
+      const link = document.createElement("a");
+  
+      if (typeof link.download === "string") {
+        link.href = data;
+        link.download = "image.jpg";
+  
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } else {
+        window.open(data);
+      }
+    };
   const useToggle = (initialState) => {
     const [toggleValue, setToggleValue] = useState(initialState);
 
@@ -94,20 +89,35 @@ const PalletDetails = (props) => {
         </div>
       </div>
       <div className=" w-full rounded-[10px] overflow-hidden  flex mt-5 text-[#000000] h-[400px]">
-        <div className="w-[25%] flex justify-center items-end bg-[#606C38]">
-          <span className="mb-10">#606C38</span>
+        <div
+          className="w-[25%] flex justify-center items-end"
+          style={{ backgroundColor: `${pallet.colors[0]}` }}
+        >
+          <span className="mb-10">{pallet.colors[0]}</span>
         </div>
-        <div className="w-[25%] flex justify-center items-end bg-[#283618]">
-          <span className="mb-10">#283618</span>
+        <div
+          className="w-[25%] flex justify-center items-end "
+          style={{ backgroundColor: `${pallet.colors[1]}` }}
+        >
+          <span className="mb-10">{pallet.colors[1]}</span>
         </div>
-        <div className="w-[25%] flex justify-center items-end  bg-[#FEFAE0]">
-          <span className="mb-10">#FEFAE0</span>
+        <div
+          className="w-[25%] flex justify-center items-end"
+          style={{ backgroundColor: `${pallet.colors[2]}` }}
+        >
+          <span className="mb-10">{pallet.colors[2]}</span>
         </div>
-        <div className="w-[25%] flex justify-center items-end bg-[#DDA15E]">
-          <span className="mb-10">#DDA15E</span>
+        <div
+          className="w-[25%] flex justify-center items-end "
+          style={{ backgroundColor: `${pallet.colors[3]}` }}
+        >
+          <span className="mb-10">{pallet.colors[3]}</span>
         </div>
-        <div className="w-[25%] flex justify-center items-end  bg-[#BC6C25]">
-          <span className="mb-10">#BC6C25</span>
+        <div
+          className="w-[25%] flex justify-center items-end "
+          style={{ backgroundColor: `${pallet.colors[4]}` }}
+        >
+          <span className="mb-10">{pallet.colors[4]}</span>
         </div>
       </div>
       <div className="mt-10">
@@ -115,53 +125,11 @@ const PalletDetails = (props) => {
           <p className=" font-bold text-[36px]">Similar palettes</p>
         </div>
 
-        <div className=" pallet-cont flex flex-row w-full max-h-[350px] gap-[10px]  my-[5%] flex-wrap overflow-hidden">
-          {pallets.map((pallet) => (
+        <div className=" pallet-cont flex flex-row w-full gap-[10px]  my-[5%] flex-wrap overflow-hidden">
+          {pallets.map((pallet,index) => (
             <div className="w-[24%] ">
-              <ColorPallet palletColors={pallet.colors} printRef={printRef} />
-              <Interactives handleDownloadImage={handleDownloadImage} />
-            </div>
-          ))}
-          {pallets.map((pallet) => (
-            <div className="w-[24%] ">
-              <ColorPallet palletColors={pallet.colors} printRef={printRef} />
-              <Interactives handleDownloadImage={handleDownloadImage} />
-            </div>
-          ))}
-          {pallets.map((pallet) => (
-            <div className="w-[24%] ">
-              <ColorPallet palletColors={pallet.colors} printRef={printRef} />
-              <Interactives handleDownloadImage={handleDownloadImage} />
-            </div>
-          ))}
-          {pallets.map((pallet) => (
-            <div className="w-[24%] ">
-              <ColorPallet palletColors={pallet.colors} printRef={printRef} />
-              <Interactives handleDownloadImage={handleDownloadImage} />
-            </div>
-          ))}
-          {pallets.map((pallet) => (
-            <div className="w-[24%] ">
-              <ColorPallet palletColors={pallet.colors} printRef={printRef} />
-              <Interactives handleDownloadImage={handleDownloadImage} />
-            </div>
-          ))}
-          {pallets.map((pallet) => (
-            <div className="w-[24%] ">
-              <ColorPallet palletColors={pallet.colors} printRef={printRef} />
-              <Interactives handleDownloadImage={handleDownloadImage} />
-            </div>
-          ))}
-          {pallets.map((pallet) => (
-            <div className="w-[24%] ">
-              <ColorPallet palletColors={pallet.colors} printRef={printRef} />
-              <Interactives handleDownloadImage={handleDownloadImage} />
-            </div>
-          ))}
-          {pallets.map((pallet) => (
-            <div className="w-[24%] ">
-              <ColorPallet palletColors={pallet.colors} printRef={printRef} />
-              <Interactives handleDownloadImage={handleDownloadImage} />
+              <ColorPallet palletColors={pallet.colors} refs={refs} index={index} />
+              <Interactives handleDownloadImage={handleDownloadImage} pallet={pallet} />
             </div>
           ))}
         </div>

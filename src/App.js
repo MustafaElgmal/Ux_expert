@@ -28,7 +28,7 @@ const router = createBrowserRouter([
     element: <ColorPalletFromLogo />,
   },
   {
-    path: "/colorPalletDetails",
+    path: "/colorPalletDetails/:id",
     element: <ColorPalletDetails />,
   },
   {

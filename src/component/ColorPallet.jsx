@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { clickToClip } from "../utils/functions";
-export default function ColorPallet({ palletColors, printRef }) {
+export default function ColorPallet({ palletColors, refs, index }) {
   const [isCopieds, setIsCopieds] = useState([]);
   useEffect(() => {
     palletColors.forEach((color) =>
@@ -8,14 +8,27 @@ export default function ColorPallet({ palletColors, printRef }) {
     );
   }, []);
   return (
-    <div className=" overflow-hidden rounded-[10px] w-full  flex flex-row  " ref={printRef}>
-        {palletColors.map((color,index) => (
-            <button onClick={() => clickToClip(color, isCopieds, setIsCopieds)} className=" btn-color w-[20%] h-[142px]   transition-[0.5s] linear delay-200 "style={{ background: `${color}` }}>
-              <div className="color-content text-[#FFFFFFE5]  text-center ">
-                {isCopieds.length>0?isCopieds[index].hex===color && isCopieds[index].isCopied?'Copied to clipboard!':color:color}
-              </div>
-            </button>
-        ))}
+    <div
+      className=" overflow-hidden rounded-[10px] w-full  flex flex-row  "
+      ref={(element) => {
+        refs.current[index] = element;
+      }}
+    >
+      {palletColors.map((color, index) => (
+        <button
+          onClick={() => clickToClip(color, isCopieds, setIsCopieds)}
+          className=" btn-color w-[20%] h-[142px]   transition-[0.5s] linear delay-200 "
+          style={{ background: `${color}` }}
+        >
+          <div className="color-content text-[#FFFFFFE5]  text-center ">
+            {isCopieds.length > 0
+              ? isCopieds[index].hex === color && isCopieds[index].isCopied
+                ? "Copied to clipboard!"
+                : color
+              : color}
+          </div>
+        </button>
+      ))}
     </div>
   );
 }

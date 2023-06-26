@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-const Pallet = ({handleDownloadImage}) => {
+const Pallet = ({handleDownloadImage,pallet}) => {
   const navigate=useNavigate()
   const [like, setLike] = useState(0),
     [isLike, setIsLike] = useState(false),
@@ -53,7 +53,7 @@ const Pallet = ({handleDownloadImage}) => {
         )}
       </div>
       <span className="text-[#7D7C83] text-sm">{`${like}`}</span>
-      <button onClick={setToggle}>
+      <button onClick={setToggle} >
         <i class="fa fa-ellipsis-h text-[#000000] rounded-[50%] mr-2"></i>
       </button>
       
@@ -62,12 +62,12 @@ const Pallet = ({handleDownloadImage}) => {
         <div className="ml-[20%]  rounded-lg md:text-right md:-ml-12 md:text-xs">
           <button
             className="download w-48  text-right mb-[5px]  "
-            onClick={handleDownloadImage}
+            onClick={()=>handleDownloadImage(pallet.id)}
           >
             {" "}
             Download Palette <i class="fa fa-download" aria-hidden="true"></i>
           </button>
-          <button className="details w-48  text-right" onClick={()=>navigate('/colorPalletDetails')}>
+          <button className="details w-48  text-right" onClick={()=>navigate(`/colorPalletDetails/${pallet.id}`)}>
             {" "}
             Palette Details <i class="fa fa-info-circle" aria-hidden="true"></i>
           </button>
