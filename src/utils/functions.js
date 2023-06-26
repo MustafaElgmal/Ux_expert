@@ -1,5 +1,6 @@
 import { saveAs } from "file-saver";
 import Header from "../component/Header";
+import { pallets } from "../constant";
 
 export const clickToClip = (hexaColor, isCopieds, setIsCopieds) => {
   navigator.clipboard.writeText(hexaColor);
@@ -88,4 +89,16 @@ export const MakePage = (pageCodes, setPageCodes, codes) => {
   } else {
     setPageCodes([codes[0].code, codes[1].code, codes[2].code]);
   }
+};
+
+export const findPalet = (id) => {
+  const paletFind = pallets.find((pallet) => pallet.id == id);
+  return paletFind;
+};
+
+export const pagination = (page, limit) => {
+  const startIndx = (page - 1) * limit;
+  const endIndx = page * limit;
+  const results = pallets.slice(startIndx, endIndx);
+  return results
 };

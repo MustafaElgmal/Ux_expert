@@ -4,21 +4,17 @@ import html2canvas from "html2canvas";
 import { Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
-import Interactives from "./Interactives"
+import Interactives from "./Interactives";
 import ColorPallets from "./ColorPallet";
 import { useNavigate } from "react-router-dom";
-const pallets = [
-  {
-    colors: ["#CDB4DB", "#FFC8DD", "#FFAFCC", "#BDE0FE", "#A2D2FF"],
-  },
-];
+import { pallets } from "../constant";
+import { useEffect } from "react";
 const ColorPallet = () => {
   const navigate = useNavigate();
-  const printRef = React.useRef();
-  const handleDownloadImage = async () => {
-    const element = printRef.current;
-    const canvas = await html2canvas(element);
-
+  const refs = React.useRef([]);
+  const handleDownloadImage = async (id) => {
+    const element = refs.current[id-1];
+    const canvas = await html2canvas(element)
     const data = canvas.toDataURL("image/jpg");
     const link = document.createElement("a");
 
@@ -56,38 +52,15 @@ const ColorPallet = () => {
         modules={[Navigation]}
         className=" mt-[2%]  "
       >
-        {pallets.map((pallet) => (
-          <SwiperSlide className="w-[25%]  overflow-hidden   ">
-            <ColorPallets palletColors={pallet.colors} printRef={printRef} />
-           <Interactives handleDownloadImage={handleDownloadImage}/>
-          </SwiperSlide>
-        ))}
-             {pallets.map((pallet) => (
-          <SwiperSlide className="w-[25%]  overflow-hidden   ">
-            <ColorPallets palletColors={pallet.colors} printRef={printRef} />
-           <Interactives handleDownloadImage={handleDownloadImage}/>
-          </SwiperSlide>
-        ))}
-             {pallets.map((pallet) => (
-          <SwiperSlide className="w-[25%]  overflow-hidden   ">
-            <ColorPallets palletColors={pallet.colors} printRef={printRef} />
-           <Interactives handleDownloadImage={handleDownloadImage}/>
-          </SwiperSlide>
-        ))}
-             {pallets.map((pallet) => (
-          <SwiperSlide className="w-[25%]  overflow-hidden   ">
-            <ColorPallets palletColors={pallet.colors} printRef={printRef} />
-           <Interactives handleDownloadImage={handleDownloadImage}/>
-          </SwiperSlide>
-        ))}
-             {pallets.map((pallet) => (
-          <SwiperSlide className="w-[25%]  overflow-hidden   ">
-            <ColorPallets palletColors={pallet.colors} printRef={printRef} />
-           <Interactives handleDownloadImage={handleDownloadImage}/>
-          </SwiperSlide>
-        ))}
+        {pallets.map((pallet,index) =>
+          pallet.isTrending ? (
+            <SwiperSlide key={index} className="w-[25%]  overflow-hidden   ">
+              <ColorPallets palletColors={pallet.colors} refs={refs} index={index} />
+              <Interactives handleDownloadImage={handleDownloadImage} pallet={pallet}/>
+            </SwiperSlide>
+          ) : null
+        )}
       </Swiper>
-
     </div>
   );
 };
