@@ -4,9 +4,10 @@ import "./dnd-styles.css";
 
 const Dnd = () => {
   const [files, setFiles] = useState();
-  const [extracted, setExtracted] = useState(false);
+  const [extracted, setExtracted] = useState([]);
   const [animate, setAnimate] = useState(false);
-  const [emptyMeassage, setEmptyMessage] = useState(false);
+  const [emptyMessage, setEmptyMessage] = useState(false);
+  const [col,setCol]=useState("");
   const handleDragOver = (e) => {
     e.preventDefault();
   };
@@ -18,18 +19,61 @@ const Dnd = () => {
       setAnimate(false);
     }, 1000);
     e.preventDefault();
-    setFiles(e.dataTransfer.files[0].name);
-    setExtracted(false);
+    setFiles(e.dataTransfer.files[0]);
+    setExtracted([]);
     setEmptyMessage(false);
   };
 
   const handleClick = () => {
     if (files) {
-      setExtracted(true);
+      setAnimate(true);
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const img = new Image();
+        img.onload = function () {
+          const canvas = document.createElement("canvas");
+          canvas.width = img.width;
+          canvas.height = img.height;
+          const ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+          const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          const colors = {};
+          for (let i = 0; i < imageData.data.length; i += 4) {
+            const [r, g, b] = [
+              imageData.data[i],
+              imageData.data[i + 1],
+              imageData.data[i + 2],
+            ];
+            const hexCode = rgbToHex(r, g, b);
+            if (colors[hexCode]) {
+              colors[hexCode]++;
+            } else {
+              colors[hexCode] = 1;
+            }
+          }
+          const sortedColors = Object.entries(colors).sort(
+            (a, b) => b[1] - a[1]
+          );
+          const topColors = sortedColors.slice(0, 8);
+          setExtracted(topColors);
+          setAnimate(false);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(files);
     } else {
       setEmptyMessage(true);
     }
   };
+
+  const rgbToHex = (r, g, b) => {
+    const componentToHex = (c) => {
+      const hex = c.toString(16);
+      return hex.length === 1 ? "0" + hex : hex;
+    };
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  };
+  
 
   return (
     <div className=" mt-14 mb-5">
@@ -47,21 +91,33 @@ const Dnd = () => {
         >
           <p>Please Drag and drop your logo or upload from your device</p>
         </div>
-        {files && <div className="uploaded">{files}</div>}
-        {emptyMeassage && <div className="uploaded">No Files Uploaded</div>}
+        {files && <div className="uploaded">{files.name}</div>}
+        {emptyMessage && <div className="uploaded">No Files Uploaded</div>}
         <div className="button-container">
-          <button className="extract-button" onClick={handleClick}>
+          <button className="extract-button " onClick={handleClick}>
             {" "}
-            {!extracted ? (
-              <p>Extract color palette</p>
+            {!extracted.length ? (
+              <p>Extract logo colors</p>
             ) : (
-              <span>
-                Extracted Successfully{" "}
+              <div>
+                Extracted Successfully
                 <AiFillCheckCircle className="check-icon" />
-              </span>
+              </div>
             )}
           </button>
         </div>
+          {extracted.length > 0 && (
+            <div className="bg-white p-5 mt-[1px] rounded-md">
+              {extracted.map(([color, frequency]) => (
+                <div  className="inline-block mx-3" key={color}>
+                  <div className={` h-[10%] text-transparent my-5 p-3 rounded-md hover:text-white `}  style={{ backgroundColor: color }}>
+                  {color}
+                  </div>
+                
+                </div>
+              ))}
+            </div>
+          )}
       </div>
     </div>
   );

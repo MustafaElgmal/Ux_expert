@@ -1,3 +1,4 @@
+
 export const Base_url =
   "https://uxexpert-backend-production-9949.up.railway.app";
 export const pallets = [
@@ -62,3 +63,4 @@ export const pallets = [
     isTrending: true,
   },
 ];
+
