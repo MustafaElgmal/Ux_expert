@@ -38,7 +38,7 @@
   text-align: center;
 }
 .search {
-  width: 700px;
+  width: 65%;
   height: 46px;
   border-radius: 5px 5px 5px 5px;
   outline: none;
@@ -55,7 +55,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 110px;
+  width: 6.5em;
   padding-inline: 5px;
   position: relative;
 }

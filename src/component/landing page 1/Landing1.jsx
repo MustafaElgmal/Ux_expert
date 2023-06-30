@@ -34,12 +34,15 @@ function Landing1({ isActive, setisActive }) {
   return (
     <div className="landing-container">
       <div className="top">What will you design today?</div>
-      <div className=" flex justify-center items-center p-[30px]">
-        <div className="flex relative items-center">
+      <div className=" flex justify-center items-center p-[30px] w-full">
+        <div className="flex relative items-center w-full ">
           <div
             className="absolute p-4 cursor-pointer"
             onClick={() => formik.handleSubmit()}
           >
+          </div>
+          <form className="w-full  flex justify-center relative"> 
+          <button className="absolute left-[19%] top-[25%]">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="22.2"
@@ -52,8 +55,7 @@ function Landing1({ isActive, setisActive }) {
                 fill="#0d1216"
               />
             </svg>
-          </div>
-          <form>
+          </button>
             <input
               type="text"
               name="sentence"

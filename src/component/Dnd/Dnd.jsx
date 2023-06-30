@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { AiFillCheckCircle } from "react-icons/ai";
+import React, { useRef, useState } from "react";
+import { AiFillCheckCircle, AiOutlineClose } from "react-icons/ai";
 import "./dnd-styles.css";
 
 const Dnd = () => {
@@ -7,7 +7,8 @@ const Dnd = () => {
   const [extracted, setExtracted] = useState([]);
   const [animate, setAnimate] = useState(false);
   const [emptyMessage, setEmptyMessage] = useState(false);
-  const [col,setCol]=useState("");
+  const [closeToast, setCloseToast] = useState(true);
+  const inputFile=useRef(null)
   const handleDragOver = (e) => {
     e.preventDefault();
   };
@@ -20,6 +21,18 @@ const Dnd = () => {
     }, 1000);
     e.preventDefault();
     setFiles(e.dataTransfer.files[0]);
+    console.log(e.dataTransfer.files[0]);
+    setExtracted([]);
+    setEmptyMessage(false);
+  };
+  const handleBrowse = (e) => {
+    setAnimate(true);
+    setFiles(false);
+    setTimeout(() => {
+      setAnimate(false);
+    }, 1000);
+    e.preventDefault();
+    setFiles(e.target.files[0]);
     setExtracted([]);
     setEmptyMessage(false);
   };
@@ -73,10 +86,23 @@ const Dnd = () => {
     };
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
   };
-  
 
   return (
     <div className=" mt-14 mb-5">
+      <div
+        className={`fixed w-full ${
+          closeToast ? "hidden" : "block"
+        } top-0  z-[20] pt-4 pb-2 animate-bounce border-b-4 border-[#4585f7] bg-gray-50 flex items-center justify-center`}
+      >
+        <AiFillCheckCircle className="check-icon mr-2  ml-auto" />
+        copied to the clipboard!{" "}
+        <p className=" ml-auto mr-5">
+          <AiOutlineClose
+            onClick={() => setCloseToast(true)}
+            className=" cursor-pointer text-xl"
+          />
+        </p>
+      </div>
       <div className="dnd-container lg:mx-40">
         {animate && (
           <div className="load">
@@ -89,9 +115,24 @@ const Dnd = () => {
           onDragOver={(e) => handleDragOver(e)}
           onDrop={(e) => handleDrop(e)}
         >
-          <p>Please Drag and drop your logo or upload from your device</p>
+          <p className=" capitalize">Please Drag and drop your logo or <input type="file" className="hidden" ref={inputFile} onChange={handleBrowse} /> <span onClick={()=>inputFile.current.click()} className="text-blue-800 cursor-pointer hover:underline active:text-red-700">Browse</span></p>
         </div>
-        {files && <div className="uploaded">{files.name}</div>}
+        {files && (
+          <div className="uploaded">
+            {files.name}
+            <p>
+              <div className="flex justify-center mt-3">
+                <div className=" h-[12.5em] w-[12.5em] ring-4 ring-[#4585f7] shadow-2xl rounded-md object-contain">
+                  <img
+                    src={URL.createObjectURL(files)}
+                    className="h-[100%] w-[100%] rounded-md "
+                    alt=""
+                  />
+                </div>
+              </div>
+            </p>
+          </div>
+        )}
         {emptyMessage && <div className="uploaded">No Files Uploaded</div>}
         <div className="button-container">
           <button className="extract-button " onClick={handleClick}>
@@ -106,18 +147,28 @@ const Dnd = () => {
             )}
           </button>
         </div>
-          {extracted.length > 0 && (
-            <div className="bg-white p-5 mt-[1px] rounded-md">
-              {extracted.map(([color, frequency]) => (
-                <div  className="inline-block mx-3" key={color}>
-                  <div className={` h-[10%] text-transparent my-5 p-3 rounded-md hover:text-white `}  style={{ backgroundColor: color }}>
-                  {color}
-                  </div>
-                
+        {extracted.length > 0 && (
+          <div className="bg-white p-5 mt-[1px] rounded-md">
+            {extracted.map(([color, frequency]) => (
+              <div className="inline-block mx-3" key={color}>
+                <div
+                  onClick={() => {
+                    navigator.clipboard.writeText(color);
+                    setCloseToast(false)
+                    setTimeout(() => setCloseToast(true), 3000);
+                  }}
+                  className={` color-container relative w-[10rem] shadow-xl  h-[10%] overflow-hidden my-5 p-3 cursor-pointer  rounded-md  `}
+                  style={{ backgroundColor: color }}
+                >
+                  <div className="color-shadow absolute translate-x-[-10rem] z-[1] bg-slate-400 opacity-50 top-0 left-0 w-full h-full hover:translate-x-[20px] "></div>
+                  <p className=" color-text relative z-[5] uppercase ">
+                    {color}
+                  </p>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );

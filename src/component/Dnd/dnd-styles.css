@@ -95,3 +95,24 @@
     }
 
 }
+
+.color-container{
+    z-index: 1;
+}
+
+.color-shadow{
+    transition: transform 0.2s ease-in-out;
+}
+.color-text{
+    transform: translateY(-5rem);
+    transition: transform 0.2s ease-in-out;
+}
+
+.color-container:hover .color-shadow{
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.color-container:hover .color-text{
+    transform: translateY(0);
+}

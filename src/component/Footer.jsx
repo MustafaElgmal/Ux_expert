@@ -82,7 +82,7 @@ const Footer = () => {
         </div>
         <div className="flex justify-center items-center content gap-12 content mt-14 ">
           <span className="absolute  bottom-5">
-            2023 UXPERT. All Rights Reserved
+            &#169; 2023 UXPERT. All Rights Reserved
           </span>
         </div>
       </div>
