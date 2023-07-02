@@ -8,8 +8,6 @@ const Test = () => {
     const stories = [
         'https://review2020.s3.us-east-1.amazonaws.com/1678582278691primary%20buttons.png',
         'https://review2020.s3.us-east-1.amazonaws.com/1678577830143input%20with%20label.png'
-        
-        
     ];
     
     return (

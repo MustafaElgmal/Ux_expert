@@ -71,6 +71,7 @@ const HeaderOfDesign = ({ categories, components, trendingComponents }) => {
     getAllComponetsByCategoryId(cateId);
   }, [cateId]);
 
+  
   return (
     <div>
       <div className="relative">

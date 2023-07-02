@@ -62,5 +62,45 @@ export const pallets = [
     colors: ["#228B22", "#008000", "#006400", "#355E3B", "#004225"],
     isTrending: true,
   },
+  {
+    id: 13,
+    colors: ["#B0BF1A", "#B2C248", "#9DC209", "#A1C935", "#9ACD32"],
+    isTrending: false,
+  },
+  {
+    id: 14,
+    colors: ["#57E964", "#16F529", "#5EFB6E", "#36F57F", "#00FF7F"],
+    isTrending: false,
+  },
+  {
+    id: 15,
+    colors: ["#98F516", "#B1FB17", "#ADF802", "#ADFF2F", "#BDF516"],
+    isTrending: false,
+  },
+  {
+    id: 16,
+    colors: ["#FFFACD", "#FFFFC2", "#FFFFCC", "#FFFDD0", "#FAFAD2"],
+    isTrending: false,
+  },
+  {
+    id: 17,
+    colors: ["#800000", "#8C001A", "#7E191B", "#800517", "#660000"],
+    isTrending: false,
+  },
+  {
+    id: 18,
+    colors: ["#7D0552", "#872657", "#7E354D", "#7F4E52", "#7F525D"],
+    isTrending: false,
+  },
+  {
+    id: 19,
+    colors: ["#DA70D6", "#FF00FF", "#FF77FF", "#D462FF", "#B048B5"],
+    isTrending: false,
+  },
+  {
+    id: 20,
+    colors: ["#967BB6", "#B09FCA", "#C8A2C8", "#E0B0FF", "#D891EF"],
+    isTrending: false,
+  },
 ];
 
