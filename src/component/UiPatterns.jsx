@@ -1,6 +1,10 @@
 import React from "react";
 import "../pages/ui patterns/ui-pattern-styles.css";
-import uipatternpic from "../assets/uipattern1.png";
+import uipatternpic1 from "../assets/ui1.jpeg";
+import uipatternpic2 from "../assets/ui2.jpeg";
+import uipatternpic3 from "../assets/ui5.jpg";
+import uipatternpic4 from "../assets/u4.jpg";
+
 import { downloadUiPattern } from "../utils/functions";
 import { useNavigate } from "react-router-dom";
 const UiPattern = () => {
@@ -20,110 +24,62 @@ const UiPattern = () => {
       </div>
       <div className="mt-[2%]">
         <div className="container-body">
-          <div className="item">
+        <div className="item">
             <div
               className="pattern"
-              onClick={() => downloadUiPattern(uipatternpic)}
+              onClick={() => downloadUiPattern(uipatternpic2)}
             >
               <img
-                src={uipatternpic}
+                src={uipatternpic2}
                 alt="No pict"
                 className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"
               />
             </div>
-            <div className="text">Collectible Achievements</div>
+            <div className="text">Expandable Input</div>
           </div>
           <div className="item">
             <div
               className="pattern"
-              onClick={() => downloadUiPattern(uipatternpic)}
+              onClick={() => downloadUiPattern(uipatternpic3)}
             >
               <img
-                src={uipatternpic}
+                src={uipatternpic3}
                 alt="No pict"
                 className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"
               />
             </div>
-            <div className="text">Collectible Achievements</div>
+            <div className="text">Structured Format</div>
           </div>
           <div className="item">
             <div
               className="pattern"
-              onClick={() => downloadUiPattern(uipatternpic)}
+              onClick={() => downloadUiPattern(uipatternpic1)}
             >
               <img
-                src={uipatternpic}
+                src={uipatternpic1}
                 alt="No pict"
                 className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"
               />
             </div>
-            <div className="text">Collectible Achievements</div>
+            <div className="text">Password Strength Meter</div>
           </div>
+          
           <div className="item">
             <div
-              className="pattern"
-              onClick={() => downloadUiPattern(uipatternpic)}
+              className="pattern "
+              onClick={() => downloadUiPattern(uipatternpic4)}
             >
               <img
-                src={uipatternpic}
+                src={uipatternpic4}
                 alt="No pict"
                 className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"
               />
             </div>
-            <div className="text">Collectible Achievements</div>
+            <div className="text">Rule Builder</div>
           </div>
-          <div className="item">
-            <div
-              className="pattern"
-              onClick={() => downloadUiPattern(uipatternpic)}
-            >
-              <img
-                src={uipatternpic}
-                alt="No pict"
-                className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"
-              />
-            </div>
-            <div className="text">Collectible Achievements</div>
-          </div>
-          <div className="item">
-            <div
-              className="pattern"
-              onClick={() => downloadUiPattern(uipatternpic)}
-            >
-              <img
-                src={uipatternpic}
-                alt="No pict"
-                className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"
-              />
-            </div>
-            <div className="text">Collectible Achievements</div>
-          </div>
-          <div className="item">
-            <div
-              className="pattern"
-              onClick={() => downloadUiPattern(uipatternpic)}
-            >
-              <img
-                src={uipatternpic}
-                alt="No pict"
-                className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"
-              />
-            </div>
-            <div className="text">Collectible Achievements</div>
-          </div>
-          <div className="item">
-            <div
-              className="pattern"
-              onClick={() => downloadUiPattern(uipatternpic)}
-            >
-              <img
-                src={uipatternpic}
-                alt="No pict"
-                className="w-full h-full object-cover transition-[0.5s] hover:scale-[1.1]"
-              />
-            </div>
-            <div className="text">Collectible Achievements</div>
-          </div>
+          
+        
+        
         </div>
       </div>
     </div>
